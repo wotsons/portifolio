@@ -49,3 +49,31 @@ export function sliceTokens(tokens: Token[], count: number): Token[] {
   }
   return out;
 }
+
+export interface CodeLine {
+  /** Leading spaces, removed from the tokens and rendered as padding instead. */
+  indent: number;
+  tokens: Token[];
+}
+
+/**
+ * Splits tokens into lines and moves each line's leading spaces into `indent`,
+ * so lines can wrap with a hanging indent instead of scrolling horizontally.
+ */
+export function splitLines(tokens: Token[]): CodeLine[] {
+  const lines: CodeLine[] = [{ indent: 0, tokens: [] }];
+  for (const token of tokens) {
+    token.text.split("\n").forEach((part, i) => {
+      if (i > 0) lines.push({ indent: 0, tokens: [] });
+      const line = lines[lines.length - 1];
+      let text = part;
+      if (line.tokens.length === 0) {
+        const lead = text.match(/^ +/)?.[0] ?? "";
+        line.indent += lead.length;
+        text = text.slice(lead.length);
+      }
+      if (text) line.tokens.push({ ...token, text });
+    });
+  }
+  return lines;
+}
