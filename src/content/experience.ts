@@ -7,7 +7,7 @@ export const experience: Experience[] = [
     role: { "pt-BR": "Desenvolvedor Front-end Pleno", en: "Mid-level Front-end Developer" },
     start: "2022-02",
     end: null,
-    location: { "pt-BR": "Juiz de Fora, MG", en: "Juiz de Fora, Brazil" },
+    location: { "pt-BR": "Remoto", en: "Remote" },
     highlights: {
       "pt-BR": [
         "Otimizei a performance de aplicações React/TypeScript, reduzindo o tempo de carregamento em 17% e aumentando a conversão em 10% com code-splitting, lazy loading e otimização de bundles no Webpack.",
