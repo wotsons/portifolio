@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "title": "{name} — {role}",
+    "description": "Portfolio of {name}, {role}. Projects, professional experience and contact.",
+    "ogAlt": "{name}'s portfolio"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "home",
+    "work": "work",
+    "profile": "profile",
+    "experience": "experience",
+    "contact": "contact",
+    "resume": "resume",
+    "skip": "skip to work",
+    "language": "Language",
+    "switchTo": "Switch to {language}"
+  },
+  "hero": {
+    "prompt": "$ whoami",
+    "greeting": {
+      "morning": "// good morning",
+      "afternoon": "// good afternoon",
+      "evening": "// good evening"
+    },
+    "viewWork": "[ view_work ]",
+    "resume": "[ resume ]",
+    "scroll": "scroll",
+    "codeTitle": "dev.ts",
+    "social": "Social"
+  },
+  "work": {
+    "label": "work",
+    "title": "Selected work",
+    "subtitle": "Systems I designed, built and shipped to production.",
+    "hint": "scroll to browse →",
+    "flip": "details",
+    "flipBack": "back",
+    "breakdown": "// breakdown",
+    "stack": "Stack",
+    "challenge": "Hardest part",
+    "impact": "Impact",
+    "live": "live",
+    "source": "source",
+    "status": {
+      "production": "IN PRODUCTION",
+      "development": "IN DEVELOPMENT",
+      "archived": "ARCHIVED"
+    }
+  },
+  "profile": {
+    "label": "profile",
+    "title": "About me",
+    "highlights": "// highlights",
+    "skills": "// skills",
+    "skillLoading": "loading...",
+    "skillDone": "done ✓",
+    "github": "// github activity",
+    "contributions": "{count, plural, =0 {no contributions} one {# contribution} other {# contributions}} in the last year",
+    "recentRepos": "recent repositories",
+    "githubUnavailable": "GitHub data is unavailable right now.",
+    "less": "less",
+    "more": "more"
+  },
+  "experience": {
+    "label": "experience",
+    "title": "Professional experience",
+    "subtitle": "Where I've worked and the impact I've had.",
+    "present": "present"
+  },
+  "contact": {
+    "label": "contact",
+    "title": "Let's talk",
+    "intro": "Got a role, a project, or just want to say hi?",
+    "emailLabel": "Email",
+    "name": "name",
+    "email": "email",
+    "message": "message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@company.com",
+    "messagePlaceholder": "Tell me a bit about the role or project...",
+    "send": "[ send_message ]",
+    "sending": "[ sending... ]",
+    "success": "[ ok ] message sent — I'll get back to you soon.",
+    "errors": {
+      "name": "Please enter your name (min. 2 characters).",
+      "email": "Please enter a valid email.",
+      "message": "Message must be between 10 and 5000 characters.",
+      "notConfigured": "[ error ] sending is unavailable right now — email me at {email}.",
+      "server": "[ error ] failed to send — try again or email me at {email}."
+    }
+  },
+  "footer": {
+    "built": "built with Next.js / TypeScript / Tailwind",
+    "viewSource": "[ view_source ]",
+    "admin": "[ admin ]",
+    "hint": "press ` to open the terminal"
+  },
+  "terminal": {
+    "title": "terminal",
+    "close": "Close terminal",
+    "inputLabel": "Terminal command",
+    "welcome": "Welcome! Type 'help' to list commands.",
+    "notFound": "command not found: {cmd}. Type 'help'.",
+    "accessDenied": "access denied — nice try.",
+    "help": {
+      "title": "available commands:",
+      "help": "list commands",
+      "whoami": "who am I",
+      "about": "professional summary",
+      "skills": "main technologies",
+      "projects": "featured projects",
+      "experience": "work experience",
+      "contact": "how to reach me",
+      "social": "social links",
+      "resume": "download resume",
+      "theme": "change accent color",
+      "lang": "change language",
+      "goto": "jump to a section",
+      "stats": "GitHub stats",
+      "date": "current date and time",
+      "echo": "print text",
+      "clear": "clear the terminal",
+      "exit": "close the terminal"
+    },
+    "themeUsage": "usage: theme <{themes}>",
+    "themeSet": "theme set to {theme}.",
+    "langUsage": "usage: lang <pt|en>",
+    "langSet": "language changed.",
+    "gotoUsage": "usage: goto <{sections}>",
+    "resumeOpening": "opening resume...",
+    "statsLoading": "querying api.github.com...",
+    "statsResult": "public repos: {repos} · followers: {followers} · following: {following}",
+    "statsError": "couldn't fetch stats.",
+    "sudo": "nice try. this incident will be reported.",
+    "secret": "psst... try the Konami code."
+  },
+  "boot": {
+    "lines": {
+      "init": "initializing system...",
+      "modules": "loading modules [ok]",
+      "i18n": "loading locale en [ok]",
+      "welcome": "welcome."
+    },
+    "skip": "press any key to skip"
+  },
+  "games": {
+    "close": "Close",
+    "snake": {
+      "title": "snake.exe",
+      "help": "arrows / WASD to move · space to pause",
+      "score": "score: {score}",
+      "gameOver": "game over — score: {score}. Press Enter to restart.",
+      "unlocked": "Konami code accepted. snake unlocked."
+    },
+    "hunt": {
+      "title": "debug_hunt.exe",
+      "help": "click the bugs before they escape!",
+      "score": "bugs: {score}",
+      "time": "time: {time}s",
+      "over": "time's up — {score} bugs fixed. Press Enter to restart."
+    }
+  },
+  "context": {
+    "copyLink": "copy link",
+    "viewSource": "view source",
+    "terminal": "open terminal",
+    "about": "about this site",
+    "copied": "link copied ✓",
+    "aboutText": "Next.js + TypeScript + Tailwind, i18n with next-intl."
+  },
+  "misc": {
+    "away": "come back_",
+    "soundOn": "sound on",
+    "soundOff": "sound off"
+  }
+}

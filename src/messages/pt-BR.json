@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "title": "{name} — {role}",
+    "description": "Portfólio de {name}, {role}. Projetos, experiência profissional e contato.",
+    "ogAlt": "Portfólio de {name}"
+  },
+  "nav": {
+    "label": "Navegação principal",
+    "home": "início",
+    "work": "projetos",
+    "profile": "perfil",
+    "experience": "experiência",
+    "contact": "contato",
+    "resume": "currículo",
+    "skip": "pular para projetos",
+    "language": "Idioma",
+    "switchTo": "Mudar para {language}"
+  },
+  "hero": {
+    "prompt": "$ whoami",
+    "greeting": {
+      "morning": "// bom dia",
+      "afternoon": "// boa tarde",
+      "evening": "// boa noite"
+    },
+    "viewWork": "[ ver_projetos ]",
+    "resume": "[ currículo ]",
+    "scroll": "rolar",
+    "codeTitle": "dev.ts",
+    "social": "Redes"
+  },
+  "work": {
+    "label": "projetos",
+    "title": "Projetos selecionados",
+    "subtitle": "Sistemas que projetei, construí e coloquei em produção.",
+    "hint": "role para navegar →",
+    "flip": "ver detalhes",
+    "flipBack": "voltar",
+    "breakdown": "// detalhes",
+    "stack": "Stack",
+    "challenge": "Maior desafio",
+    "impact": "Impacto",
+    "live": "demo",
+    "source": "código",
+    "status": {
+      "production": "EM PRODUÇÃO",
+      "development": "EM DESENVOLVIMENTO",
+      "archived": "ARQUIVADO"
+    }
+  },
+  "profile": {
+    "label": "perfil",
+    "title": "Sobre mim",
+    "highlights": "// destaques",
+    "skills": "// skills",
+    "skillLoading": "carregando...",
+    "skillDone": "ok ✓",
+    "github": "// atividade no github",
+    "contributions": "{count, plural, =0 {nenhuma contribuição} one {# contribuição} other {# contribuições}} no último ano",
+    "recentRepos": "repositórios recentes",
+    "githubUnavailable": "dados do GitHub indisponíveis no momento.",
+    "less": "menos",
+    "more": "mais"
+  },
+  "experience": {
+    "label": "experiência",
+    "title": "Experiência profissional",
+    "subtitle": "Onde trabalhei e o impacto que gerei.",
+    "present": "atual"
+  },
+  "contact": {
+    "label": "contato",
+    "title": "Vamos conversar",
+    "intro": "Tem uma vaga, um projeto ou só quer trocar uma ideia?",
+    "emailLabel": "Email",
+    "name": "nome",
+    "email": "email",
+    "message": "mensagem",
+    "namePlaceholder": "Seu nome",
+    "emailPlaceholder": "voce@empresa.com",
+    "messagePlaceholder": "Conte um pouco sobre a vaga ou projeto...",
+    "send": "[ enviar_mensagem ]",
+    "sending": "[ enviando... ]",
+    "success": "[ ok ] mensagem enviada — respondo em breve.",
+    "errors": {
+      "name": "Informe seu nome (mín. 2 caracteres).",
+      "email": "Informe um email válido.",
+      "message": "A mensagem precisa ter entre 10 e 5000 caracteres.",
+      "notConfigured": "[ erro ] envio indisponível no momento — escreva para {email}.",
+      "server": "[ erro ] falha ao enviar — tente novamente ou escreva para {email}."
+    }
+  },
+  "footer": {
+    "built": "feito com Next.js / TypeScript / Tailwind",
+    "viewSource": "[ ver_código ]",
+    "admin": "[ admin ]",
+    "hint": "pressione ` para abrir o terminal"
+  },
+  "terminal": {
+    "title": "terminal",
+    "close": "Fechar terminal",
+    "inputLabel": "Comando do terminal",
+    "welcome": "Bem-vindo! Digite 'help' para ver os comandos.",
+    "notFound": "comando não encontrado: {cmd}. Digite 'help'.",
+    "accessDenied": "acesso negado — boa tentativa.",
+    "help": {
+      "title": "comandos disponíveis:",
+      "help": "lista os comandos",
+      "whoami": "quem sou eu",
+      "about": "resumo profissional",
+      "skills": "principais tecnologias",
+      "projects": "projetos em destaque",
+      "experience": "experiência profissional",
+      "contact": "como falar comigo",
+      "social": "links sociais",
+      "resume": "baixa o currículo",
+      "theme": "muda a cor de destaque",
+      "lang": "muda o idioma",
+      "goto": "navega até uma seção",
+      "stats": "estatísticas do GitHub",
+      "date": "data e hora atual",
+      "echo": "repete o texto",
+      "clear": "limpa o terminal",
+      "exit": "fecha o terminal"
+    },
+    "themeUsage": "uso: theme <{themes}>",
+    "themeSet": "tema alterado para {theme}.",
+    "langUsage": "uso: lang <pt|en>",
+    "langSet": "idioma alterado.",
+    "gotoUsage": "uso: goto <{sections}>",
+    "resumeOpening": "abrindo currículo...",
+    "statsLoading": "consultando api.github.com...",
+    "statsResult": "repos públicos: {repos} · seguidores: {followers} · seguindo: {following}",
+    "statsError": "não foi possível obter as estatísticas.",
+    "sudo": "boa tentativa. este incidente será reportado.",
+    "secret": "psst... tente o código Konami."
+  },
+  "boot": {
+    "lines": {
+      "init": "inicializando sistema...",
+      "modules": "carregando módulos [ok]",
+      "i18n": "carregando idioma pt-BR [ok]",
+      "welcome": "bem-vindo."
+    },
+    "skip": "pressione qualquer tecla para pular"
+  },
+  "games": {
+    "close": "Fechar",
+    "snake": {
+      "title": "snake.exe",
+      "help": "setas / WASD para mover · espaço para pausar",
+      "score": "pontos: {score}",
+      "gameOver": "fim de jogo — pontos: {score}. Enter para reiniciar.",
+      "unlocked": "código Konami aceito. snake desbloqueado."
+    },
+    "hunt": {
+      "title": "debug_hunt.exe",
+      "help": "clique nos bugs antes que fujam!",
+      "score": "bugs: {score}",
+      "time": "tempo: {time}s",
+      "over": "tempo esgotado — {score} bugs corrigidos. Enter para reiniciar."
+    }
+  },
+  "context": {
+    "copyLink": "copiar link",
+    "viewSource": "ver código",
+    "terminal": "abrir terminal",
+    "about": "sobre este site",
+    "copied": "link copiado ✓",
+    "aboutText": "Next.js + TypeScript + Tailwind, i18n com next-intl."
+  },
+  "misc": {
+    "away": "volte logo_",
+    "soundOn": "som ligado",
+    "soundOff": "som desligado"
+  }
+}
