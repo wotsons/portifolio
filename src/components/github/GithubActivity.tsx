@@ -1,7 +1,9 @@
 import { Star } from "lucide-react";
-import { getFormatter, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { hasGithub, profile } from "@/content/profile";
 import { getContributions, getRecentRepos, toWeeks } from "@/lib/github";
+import { RelativeTime } from "./RelativeTime";
+import { ScrollToEnd } from "./ScrollToEnd";
 
 const LEVEL_BG = [
   "bg-raised",
@@ -13,7 +15,6 @@ const LEVEL_BG = [
 
 export async function GithubActivity() {
   const t = await getTranslations("profile");
-  const format = await getFormatter();
 
   const [contributions, repos] = hasGithub
     ? await Promise.all([getContributions(profile.github), getRecentRepos(profile.github)])
@@ -30,7 +31,7 @@ export async function GithubActivity() {
           <p className="mb-3 text-sm text-fg-2">
             {t("contributions", { count: contributions.total })}
           </p>
-          <div className="overflow-x-auto pb-2">
+          <ScrollToEnd className="overflow-x-auto pb-2">
             <div
               className="flex w-max gap-[3px]"
               role="img"
@@ -48,7 +49,7 @@ export async function GithubActivity() {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollToEnd>
           <div
             aria-hidden
             className="mt-2 flex items-center gap-1 font-mono text-[11px] text-muted"
@@ -84,9 +85,7 @@ export async function GithubActivity() {
                       <Star className="size-3" aria-hidden />
                       {r.stars}
                     </span>
-                    <time dateTime={r.pushedAt}>
-                      {format.dateTime(new Date(r.pushedAt), { month: "short", day: "numeric" })}
-                    </time>
+                    <RelativeTime iso={r.pushedAt} />
                   </span>
                 </a>
               </li>
