@@ -1,13 +1,14 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { BOOT_CLASS } from "./init-script";
 
 /**
- * Shared "is the boot screen finished?" flag. Defaults to done; the boot
- * screen flips it to pending in a layout effect (before any passive effects
- * start hero animations) and back to done when dismissed.
+ * Shared "is the boot screen finished?" flag. On the client it starts from the
+ * class the pre-paint script set, so hero animations never start under the boot.
  */
-let done = true;
+let done =
+  typeof document === "undefined" || !document.documentElement.classList.contains(BOOT_CLASS);
 const listeners = new Set<() => void>();
 
 function set(value: boolean) {

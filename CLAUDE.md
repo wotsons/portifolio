@@ -44,7 +44,7 @@ Conventional Commits are enforced by commitlint in `.husky/commit-msg`, and body
 
 **Cross-component communication** uses the typed window CustomEvent bus in `src/lib/events.ts` (`emit` / `useAppEvent`), not a store. For example, the footer `[ admin ]` emits `terminal:open`, and the terminal `snake` command emits `game:open`.
 
-**Boot gating.** `src/lib/boot.ts` is a tiny external store. `BootScreen` calls `beginBoot()` in a layout effect, before any passive effects run, so the hero typewriters (`useBootDone()`) wait until the boot screen finishes. Boot shows once per session (`sessionStorage.booted`).
+**Boot gating.** The inline `initScript` (`src/lib/init-script.ts`, rendered in `<head>`) decides before first paint whether the boot screen shows (first visit per session via `sessionStorage.booted`, not reduced motion) and adds `html.booting`. `BootScreen` is always in the server HTML but only visible under that class (`in-[.booting]:flex`), so there's no flash of the page first; it types the lines after hydration and removes the class when done (the script also drops it after 8s as a fallback). `src/lib/boot.ts` reads the class so the hero typewriters (`useBootDone()`) wait. Values the head script needs live in `init-script.ts`, not in `"use client"` modules.
 
 **Settings store.** `src/lib/settings.ts` holds client state shared by unrelated components: `effectsStore` (rain + cursor trail; persisted in `localStorage.effects`, toggled by `matrix on|off`) and `konamiStore` (Konami count; 1+ unlocks the hidden `snake` command, 2+ triggers the light show).
 

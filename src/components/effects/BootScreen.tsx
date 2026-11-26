@@ -4,13 +4,16 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { beginBoot, finishBoot } from "@/lib/boot";
+import { BOOT_CLASS, BOOT_STORAGE_KEY } from "@/lib/init-script";
 import { cn } from "@/lib/utils";
 
-const KEY = "booted";
-
+/**
+ * The overlay is always in the server HTML but only visible under `html.booting`,
+ * which the <head> script sets before first paint; React then types the lines.
+ */
 export function BootScreen() {
   const t = useTranslations("boot");
-  const [state, setState] = useState<"off" | "on" | "leaving">("off");
+  const [state, setState] = useState<"waiting" | "on" | "leaving" | "done">("waiting");
   const text = [
     t("lines.init"),
     t("lines.modules"),
@@ -29,23 +32,22 @@ export function BootScreen() {
 
   // Layout effect so hero animations (passive effects) see the boot as pending.
   useLayoutEffect(() => {
-    let seen = true;
-    try {
-      seen = !!sessionStorage.getItem(KEY);
-    } catch {}
-    if (seen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    beginBoot();
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- must show before first paint
-    setState("on");
+    const booting = document.documentElement.classList.contains(BOOT_CLASS);
+    if (booting) beginBoot();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- decided by the pre-paint script
+    setState(booting ? "on" : "done");
   }, []);
 
   const finish = useCallback(() => {
     try {
-      sessionStorage.setItem(KEY, "1");
+      sessionStorage.setItem(BOOT_STORAGE_KEY, "1");
     } catch {}
     setState("leaving");
     finishBoot();
-    window.setTimeout(() => setState("off"), 400);
+    window.setTimeout(() => {
+      document.documentElement.classList.remove(BOOT_CLASS);
+      setState("done");
+    }, 400);
   }, []);
 
   useEffect(() => {
@@ -61,13 +63,13 @@ export function BootScreen() {
     return () => clearTimeout(timer);
   }, [state, done, finish]);
 
-  if (state === "off") return null;
+  if (state === "done") return null;
 
   return (
     <div
       aria-hidden
       className={cn(
-        "fixed inset-0 z-[90] flex flex-col justify-center bg-bg-deep px-8 font-mono text-sm leading-6 transition-opacity duration-400 sm:px-[20vw] print:hidden",
+        "fixed inset-0 z-[90] hidden flex-col justify-center bg-bg-deep px-8 font-mono text-sm leading-6 transition-opacity duration-400 in-[.booting]:flex sm:px-[20vw] print:hidden",
         state === "leaving" && "opacity-0",
       )}
     >

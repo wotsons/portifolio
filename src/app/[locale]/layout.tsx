@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/layout/JsonLd";
 import { profile } from "@/content/profile";
 import { routing } from "@/i18n/routing";
 import { geist, jetbrainsMono } from "@/lib/fonts";
-import { themeInitScript } from "@/lib/theme";
+import { initScript } from "@/lib/init-script";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -65,7 +65,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: initScript }} />
         <JsonLd locale={locale} />
       </head>
       <body>
