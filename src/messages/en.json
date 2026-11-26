@@ -90,7 +90,7 @@
     "built": "built with Next.js / TypeScript / Tailwind",
     "viewSource": "[ view_source ]",
     "admin": "[ admin ]",
-    "hint": "press ` to open the terminal"
+    "hint": "press '' to open the terminal"
   },
   "terminal": {
     "title": "terminal",
@@ -219,7 +219,7 @@
     "available": "available"
   },
   "float": {
-    "terminal": "terminal `",
+    "terminal": "terminal ''",
     "devMode": "dev_mode",
     "devTitle": "// developer notes",
     "note1": "Next.js 16 with Cache Components: both language versions are static HTML, and GitHub data is cached on the server hourly.",
@@ -230,7 +230,7 @@
     "note6": "Contact form uses a Server Action with server-side zod validation, a honeypot and Resend.",
     "close": "Close notes"
   },
-  "hint": "tip: press ` to open the terminal and 1–5 to jump between sections",
+  "hint": "tip: press '' to open the terminal and 1–5 to jump between sections",
   "console": {
     "hello": "nice, you opened the console.",
     "source": "source: {repo} — email: {email}"

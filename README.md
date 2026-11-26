@@ -55,7 +55,7 @@ Commits follow [Conventional Commits](https://www.conventionalcommits.org/), enf
 
 ## Easter eggs
 
-- Press <kbd>&#96;</kbd> (or the floating `terminal` button) to open the terminal. `help` lists commands; try `hire`, `ls`, `cat secrets.txt`, `theme pink`, `matrix off` or `lang en`.
+- Press <kbd>'</kbd> (or the floating `terminal` button) to open the terminal. `help` lists commands; try `hire`, `ls`, `cat secrets.txt`, `theme pink`, `matrix off` or `lang en`.
 - Press <kbd>1</kbd>–<kbd>5</kbd> to jump between sections.
 - Konami code: ↑ ↑ ↓ ↓ ← → ← → B A unlocks a hidden command. Enter it twice for a light show.
 - The `dev_mode` button opens notes on how the site is built; the top-right HUD shows time on page and scroll progress.

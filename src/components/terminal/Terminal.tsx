@@ -63,7 +63,7 @@ export function Terminal() {
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.key === "`" && (!isTyping(e.target) || e.target === input.current)) {
+      if (e.key === "'" && !isTyping(e.target)) {
         e.preventDefault();
         emit("terminal:toggle");
         return;

@@ -90,7 +90,7 @@
     "built": "feito com Next.js / TypeScript / Tailwind",
     "viewSource": "[ ver_código ]",
     "admin": "[ admin ]",
-    "hint": "pressione ` para abrir o terminal"
+    "hint": "pressione '' para abrir o terminal"
   },
   "terminal": {
     "title": "terminal",
@@ -219,7 +219,7 @@
     "available": "disponível"
   },
   "float": {
-    "terminal": "terminal `",
+    "terminal": "terminal ''",
     "devMode": "dev_mode",
     "devTitle": "// notas do desenvolvedor",
     "note1": "Next.js 16 com Cache Components: as duas versões de idioma são HTML estático, e os dados do GitHub são cacheados no servidor por hora.",
@@ -230,7 +230,7 @@
     "note6": "Formulário com Server Action, validação zod no servidor, honeypot e envio via Resend.",
     "close": "Fechar notas"
   },
-  "hint": "dica: pressione ` para abrir o terminal e 1–5 para pular entre seções",
+  "hint": "dica: pressione '' para abrir o terminal e 1–5 para pular entre seções",
   "console": {
     "hello": "opa, você abriu o console.",
     "source": "código: {repo} — email: {email}"

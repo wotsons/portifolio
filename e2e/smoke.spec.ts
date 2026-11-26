@@ -52,13 +52,13 @@ test("contact form shows validation errors", async ({ page }) => {
   await expect(form.getByLabel("email")).toHaveAttribute("aria-invalid", "true");
 });
 
-test("terminal opens with the backtick key and runs commands", async ({ page, isMobile }) => {
+test("terminal opens with the apostrophe key and runs commands", async ({ page, isMobile }) => {
   test.skip(isMobile, "keyboard shortcut is desktop-only");
   await open(page, "/en");
   const input = page.getByLabel("Terminal command");
   // The shortcut only exists after hydration, so retry the key press until it opens.
   await expect(async () => {
-    if (!(await input.isVisible())) await page.keyboard.press("`");
+    if (!(await input.isVisible())) await page.keyboard.press("'");
     await expect(input).toBeFocused({ timeout: 1_000 });
   }).toPass({ timeout: 15_000 });
   await input.fill("goto contact");
