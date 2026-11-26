@@ -121,7 +121,20 @@
       "date": "current date and time",
       "echo": "print text",
       "clear": "clear the terminal",
-      "exit": "close the terminal"
+      "exit": "close the terminal",
+      "now": "what I'm working on",
+      "hire": "generate a proposal and open contact",
+      "email": "open your email client",
+      "github": "open my GitHub",
+      "ls": "list files",
+      "cat": "print a file",
+      "cd": "change directory",
+      "matrix": "toggle the rain [on|off]",
+      "reset": "restore theme and effects",
+      "specs": "what this site is built with",
+      "banner": "print the banner",
+      "play": "play debug_hunt.exe",
+      "history": "commands from this session"
     },
     "themeUsage": "usage: theme <{themes}>",
     "themeSet": "theme set to {theme}.",
@@ -133,14 +146,42 @@
     "statsResult": "public repos: {repos} · followers: {followers} · following: {following}",
     "statsError": "couldn't fetch stats.",
     "sudo": "nice try. this incident will be reported.",
-    "secret": "psst... try the Konami code."
+    "secret": "psst... try the Konami code.",
+    "now": "currently: building full stack apps with React, TypeScript and Node.js — and open to senior roles.",
+    "catUsage": "usage: cat <file>",
+    "catNoSuch": "cat: no such file: {file}",
+    "secrets": "psst... mention \"cat secrets.txt\" in your message — I'll know you explored everything.",
+    "cdEntered": "entered ~/{dir} — scrolling there now.",
+    "cdNoSuch": "cd: no such directory: {dir}",
+    "matrixStatus": "rain is {state}. usage: matrix [on|off]",
+    "matrixSet": "rain {state}. saved for next time.",
+    "on": "on",
+    "off": "off",
+    "reset": "theme and effects back to defaults.",
+    "hireProgress": "generating proposal... [{bar}] {pct}%",
+    "hireReady": "proposal ready. redirecting to contact form...",
+    "hireMessage": "Hi Wotson! I'd like to talk to you about an opportunity.",
+    "specsTitle": "specs:",
+    "launching": "launching {game}...",
+    "historyEmpty": "no history yet.",
+    "sudoGranted": "permission granted.",
+    "sudoHere": "here you go.",
+    "konamiTitle": "░░░ SECRET UNLOCKED ░░░",
+    "konamiBody": "you found the konami code. respect.",
+    "konamiHint": "type \"snake\" to play a hidden game.",
+    "konamiAgainTitle": "░░░ YOU DID IT AGAIN ░░░",
+    "konamiAgainBody": "there is nothing left to unlock. just enjoy the light show.",
+    "adminAccess": "> access /admin"
   },
   "boot": {
     "lines": {
       "init": "initializing system...",
       "modules": "loading modules [ok]",
       "i18n": "loading locale en [ok]",
-      "welcome": "welcome."
+      "welcome": "welcome.",
+      "mount": "mounting /portfolio...",
+      "user": "user: wotson_sula",
+      "status": "status: open to opportunities"
     },
     "skip": "press any key to skip"
   },
@@ -151,7 +192,7 @@
       "help": "arrows / WASD to move · space to pause",
       "score": "score: {score}",
       "gameOver": "game over — score: {score}. Press Enter to restart.",
-      "unlocked": "Konami code accepted. snake unlocked."
+      "go": "arrow keys to move. go!"
     },
     "hunt": {
       "title": "debug_hunt.exe",
@@ -159,7 +200,8 @@
       "score": "bugs: {score}",
       "time": "time: {time}s",
       "over": "time's up — {score} bugs fixed. Press Enter to restart."
-    }
+    },
+    "start": "[ start ]"
   },
   "context": {
     "copyLink": "copy link",
@@ -173,5 +215,28 @@
     "away": "come back_",
     "soundOn": "sound on",
     "soundOff": "sound off"
+  },
+  "hud": {
+    "label": "Status",
+    "uptime": "time on page",
+    "scrolled": "scrolled",
+    "available": "available"
+  },
+  "float": {
+    "terminal": "terminal `",
+    "devMode": "dev_mode",
+    "devTitle": "// developer notes",
+    "note1": "Next.js 16 with Cache Components: both language versions are static HTML, and GitHub data is cached on the server hourly.",
+    "note2": "Pinned work section where vertical scroll drives translateX via requestAnimationFrame, no libraries.",
+    "note3": "Terminal: the command parser is a pure, unit-tested function; the component applies its effects (theme, language, navigation).",
+    "note4": "Character rain on <canvas>, paused while the tab is hidden and off with prefers-reduced-motion.",
+    "note5": "3D flip cards in CSS (preserve-3d + backface-visibility) with the hidden face marked inert.",
+    "note6": "Contact form uses a Server Action with server-side zod validation, a honeypot and Resend.",
+    "close": "Close notes"
+  },
+  "hint": "tip: press ` to open the terminal and 1–5 to jump between sections",
+  "console": {
+    "hello": "nice, you opened the console.",
+    "source": "source: {repo} — email: {email}"
   }
 }

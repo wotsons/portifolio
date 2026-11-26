@@ -2,17 +2,24 @@
 
 import { useEffect, useRef } from "react";
 
+/** A terminal line, kept structurally compatible with `Line` from the terminal commands. */
+export interface TerminalLine {
+  text: string;
+  kind?: "input" | "out" | "muted" | "accent" | "error";
+}
+
 /**
  * Tiny typed event bus over window CustomEvents. Lets unrelated widgets
  * (footer button, keyboard shortcuts, context menu, terminal) talk without
  * a global store or prop drilling.
  */
 export interface AppEvents {
-  "terminal:open": { message?: string };
+  "terminal:open": { message?: string; lines?: TerminalLine[] };
   "terminal:toggle": undefined;
   "game:open": { game: "snake" | "hunt" };
   "contact:prefill": { message: string };
-  toast: { message: string };
+  "rain:burst": undefined;
+  toast: { message: string; duration?: number };
 }
 
 type EventName = keyof AppEvents;

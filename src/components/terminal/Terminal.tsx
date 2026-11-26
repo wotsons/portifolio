@@ -5,11 +5,15 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { hasGithub, profile } from "@/content/profile";
 import { SECTIONS } from "@/content/sections";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useRouter } from "@/i18n/navigation";
-import { emit, useAppEvent } from "@/lib/events";
+import { emit, useAppEvent, type TerminalLine } from "@/lib/events";
+import { setEffects, useEffectsEnabled, useKonamiCount } from "@/lib/settings";
 import { applyAccentTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { complete, runCommand, type Effect, type Line, type Translate } from "./commands";
+
+const progressBar = (pct: number) => "#".repeat(pct / 10) + "-".repeat(10 - pct / 10);
 
 const KIND_CLASS: Record<NonNullable<Line["kind"]>, string> = {
   input: "text-fg",
@@ -29,6 +33,9 @@ export function Terminal() {
   const t: Translate = (key, values) => tRaw(key as never, values as never);
   const locale = useLocale();
   const router = useRouter();
+  const reduced = useReducedMotion();
+  const effectsOn = useEffectsEnabled();
+  const snakeUnlocked = useKonamiCount() > 0;
 
   const [open, setOpen] = useState(false);
   const [lines, setLines] = useState<Line[]>([]);
@@ -41,15 +48,16 @@ export function Terminal() {
   const body = useRef<HTMLDivElement>(null);
   const drag = useRef<{ dx: number; dy: number } | null>(null);
 
-  const show = (message?: string) => {
+  const show = (message?: string, extra: TerminalLine[] = []) => {
     setOpen(true);
     setLines((prev) => {
-      const base = prev.length ? prev : [{ text: t("welcome"), kind: "muted" as const }];
-      return message ? [...base, { text: message, kind: "error" as const }] : base;
+      const base: Line[] = prev.length ? prev : [{ text: t("welcome"), kind: "muted" }];
+      const next: Line[] = [...base, ...extra];
+      return message ? [...next, { text: message, kind: "error" }] : next;
     });
   };
 
-  useAppEvent("terminal:open", (detail) => show(detail?.message));
+  useAppEvent("terminal:open", (detail) => show(detail?.message, detail?.lines));
   useAppEvent("terminal:toggle", () => (open ? setOpen(false) : show()));
 
   // Global shortcuts: ` toggles the terminal, 1–5 jump between sections.
@@ -95,6 +103,44 @@ export function Terminal() {
         return document.getElementById(effect.section)?.scrollIntoView({ behavior: "smooth" });
       case "open":
         return void window.open(effect.url, "_blank", "noopener");
+      case "navigate":
+        window.location.href = effect.url;
+        return;
+      case "effects":
+        return setEffects(effect.on);
+      case "reset":
+        applyAccentTheme("teal");
+        return setEffects(!reduced);
+      case "hire": {
+        // Animated progress line, then prefill and scroll to the contact form.
+        let index = -1;
+        setLines((prev) => {
+          index = prev.length;
+          return [
+            ...prev,
+            { text: t("hireProgress", { bar: progressBar(0), pct: 0 }), kind: "muted" },
+          ];
+        });
+        let pct = 0;
+        const timer = window.setInterval(() => {
+          pct += 20;
+          setLines((prev) => {
+            if (!prev[index]) return prev;
+            const next = [...prev];
+            next[index] = {
+              text: t("hireProgress", { bar: progressBar(pct), pct }),
+              kind: "muted",
+            };
+            return next;
+          });
+          if (pct >= 100) {
+            clearInterval(timer);
+            append({ text: t("hireReady"), kind: "accent" });
+            emit("contact:prefill", { message: `${t("hireMessage")}\n\n` });
+          }
+        }, 200);
+        return;
+      }
       case "game":
         setOpen(false);
         return emit("game:open", { game: effect.game });
@@ -128,7 +174,13 @@ export function Terminal() {
     setValue("");
     setCursor(-1);
     if (cmd.trim()) setHistory((h) => [cmd, ...h].slice(0, 50));
-    const result = runCommand(cmd, { t, locale });
+    const result = runCommand(cmd, {
+      t,
+      locale,
+      history: [...history].reverse(),
+      snakeUnlocked,
+      effectsOn,
+    });
     append({ text: `$ ${cmd}`, kind: "input" }, ...result.lines);
     result.effects.forEach((e) => void runEffect(e));
   };
@@ -139,7 +191,9 @@ export function Terminal() {
     if (e.key === "Tab") {
       e.preventDefault();
       const c = complete(value);
-      if (c) setValue(`${c} `);
+      if (c.value) setValue(c.value);
+      else if (c.options)
+        append({ text: `$ ${value}`, kind: "input" }, { text: c.options.join("  ") });
       return;
     }
     if (e.key === "ArrowUp" || e.key === "ArrowDown") {
@@ -179,7 +233,7 @@ export function Terminal() {
       aria-label={t("title")}
       className={cn(
         "fixed z-50 flex h-[min(380px,70vh)] w-[min(580px,calc(100vw-32px))] flex-col overflow-hidden rounded-xl border border-line-strong bg-bg-deep/95 shadow-float backdrop-blur",
-        !pos && "right-4 bottom-4",
+        !pos && "right-4 bottom-18",
       )}
       style={pos ? { left: pos.x, top: pos.y } : undefined}
       onClick={() => input.current?.focus({ preventScroll: true })}

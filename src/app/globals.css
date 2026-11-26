@@ -135,6 +135,44 @@
   }
 }
 
+/* Konami code: a brief accent wash over the whole page. */
+.konami-flash::after,
+.konami-flash-big::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  background: var(--accent);
+  animation: konami-flash 400ms ease-out forwards;
+}
+
+.konami-flash-big::after {
+  animation: konami-flash-big 1000ms ease-out forwards;
+}
+
+@keyframes konami-flash {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes konami-flash-big {
+  0%,
+  40%,
+  80% {
+    opacity: 0.3;
+  }
+  20%,
+  60%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes blink {
   50% {
     opacity: 0;

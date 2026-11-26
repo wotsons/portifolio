@@ -8,18 +8,47 @@ import { profile } from "@/content/profile";
 import { useIdle } from "@/hooks/useIdle";
 import { useKonami } from "@/hooks/useKonami";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useBootDone } from "@/lib/boot";
 import { emit, useAppEvent } from "@/lib/events";
+import { konamiStore } from "@/lib/settings";
 
-/** Konami → snake, game launcher, idle screensaver, away tab title, key clicks, toasts and context menu. */
+function flash(className: string, ms: number) {
+  const root = document.documentElement;
+  root.classList.remove(className);
+  void root.offsetWidth; // restart the animation if it is already running
+  root.classList.add(className);
+  window.setTimeout(() => root.classList.remove(className), ms);
+}
+
+/** Konami unlock, game launcher, idle screensaver, away tab title, key clicks, toasts, hint, console and context menu. */
 export function EasterEggs() {
-  const tGames = useTranslations("games");
+  const t = useTranslations("terminal");
   const [game, setGame] = useState<"snake" | "hunt" | null>(null);
   const close = useCallback(() => setGame(null), []);
 
   useAppEvent("game:open", ({ game }) => setGame(game));
   useKonami(() => {
-    emit("toast", { message: tGames("snake.unlocked") });
-    setGame("snake");
+    const count = konamiStore.get() + 1;
+    konamiStore.set(count);
+    if (count === 1) {
+      flash("konami-flash", 400);
+      emit("terminal:open", {
+        lines: [
+          { text: t("konamiTitle"), kind: "accent" },
+          { text: t("konamiBody") },
+          { text: t("konamiHint"), kind: "muted" },
+        ],
+      });
+    } else {
+      flash("konami-flash-big", 1000);
+      emit("rain:burst");
+      emit("terminal:open", {
+        lines: [
+          { text: t("konamiAgainTitle"), kind: "accent" },
+          { text: t("konamiAgainBody"), kind: "muted" },
+        ],
+      });
+    }
   });
 
   return (
@@ -29,10 +58,48 @@ export function EasterEggs() {
       <Screensaver />
       <AwayTitle />
       <KeySound />
-      <Toast />
+      <Toasts />
+      <FirstVisitHint />
+      <ConsoleGreeting />
       <ContextMenu />
     </>
   );
+}
+
+/** Shows the keyboard tip once, 7s after the boot screen finishes. */
+function FirstVisitHint() {
+  const t = useTranslations();
+  const booted = useBootDone();
+  useEffect(() => {
+    if (!booted) return;
+    try {
+      if (localStorage.getItem("hint-seen")) return;
+    } catch {
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      emit("toast", { message: t("hint"), duration: 5000 });
+      try {
+        localStorage.setItem("hint-seen", "1");
+      } catch {}
+    }, 7000);
+    return () => clearTimeout(timer);
+  }, [booted, t]);
+  return null;
+}
+
+/** A hello for the curious ones who open devtools. */
+function ConsoleGreeting() {
+  const t = useTranslations("console");
+  const said = useRef(false);
+  useEffect(() => {
+    if (said.current) return;
+    said.current = true;
+    const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent");
+    console.log(`%c${t("hello")}`, `color:${accent};font:600 14px ui-monospace,monospace`);
+    console.log(t("source", { repo: profile.sourceRepo, email: profile.email }));
+  }, [t]);
+  return null;
 }
 
 function Screensaver() {
@@ -125,25 +192,29 @@ function KeySound() {
   return null;
 }
 
-function Toast() {
-  const [message, setMessage] = useState<string | null>(null);
-  const timer = useRef(0);
-  useAppEvent("toast", ({ message }) => {
-    setMessage(message);
-    clearTimeout(timer.current);
-    timer.current = window.setTimeout(() => setMessage(null), 2600);
+/** Stacked toasts, bottom-left above the dev_mode button. */
+function Toasts() {
+  const [toasts, setToasts] = useState<{ id: number; message: string }[]>([]);
+  const nextId = useRef(0);
+  useAppEvent("toast", ({ message, duration = 3200 }) => {
+    const id = ++nextId.current;
+    setToasts((list) => [...list, { id, message }]);
+    window.setTimeout(() => setToasts((list) => list.filter((x) => x.id !== id)), duration);
   });
   return (
     <div
       role="status"
       aria-live="polite"
-      className="fixed bottom-6 left-1/2 z-[85] -translate-x-1/2"
+      className="fixed bottom-18 left-4 z-[85] flex max-w-[min(360px,calc(100vw-32px))] flex-col gap-2 print:hidden"
     >
-      {message && (
-        <p className="animate-[rise_300ms_var(--ease-out-expo)] rounded-lg border border-line-strong bg-raised px-4 py-2 font-mono text-xs text-fg shadow-float">
-          {message}
+      {toasts.map((toast) => (
+        <p
+          key={toast.id}
+          className="animate-[rise_300ms_var(--ease-out-expo)] rounded-lg border border-line-strong bg-raised px-4 py-2 font-mono text-xs text-fg shadow-float"
+        >
+          {toast.message}
         </p>
-      )}
+      ))}
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { effectsStore } from "@/lib/settings";
 
 const TRAIL_CHARS = "01<>{}/;";
 const INTERACTIVE = "a, button, input, textarea, select, label, [role='button']";
@@ -42,7 +43,7 @@ export function CustomCursor() {
     };
 
     const spawnTrail = (now: number) => {
-      if (now - lastTrail < 55 || !trail.current) return;
+      if (now - lastTrail < 55 || !trail.current || !effectsStore.get()) return;
       lastTrail = now;
       const span = document.createElement("span");
       span.textContent = TRAIL_CHARS[(Math.random() * TRAIL_CHARS.length) | 0];

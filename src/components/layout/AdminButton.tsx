@@ -9,7 +9,12 @@ export function AdminButton({ label }: { label: string }) {
   return (
     <button
       type="button"
-      onClick={() => emit("terminal:open", { message: t("accessDenied") })}
+      onClick={() =>
+        emit("terminal:open", {
+          lines: [{ text: t("adminAccess"), kind: "muted" }],
+          message: t("accessDenied"),
+        })
+      }
       className="cursor-pointer transition-colors hover:text-negative"
     >
       {label}

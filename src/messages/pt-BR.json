@@ -121,7 +121,20 @@
       "date": "data e hora atual",
       "echo": "repete o texto",
       "clear": "limpa o terminal",
-      "exit": "fecha o terminal"
+      "exit": "fecha o terminal",
+      "now": "no que estou trabalhando",
+      "hire": "gera uma proposta e abre o contato",
+      "email": "abre seu cliente de email",
+      "github": "abre meu GitHub",
+      "ls": "lista arquivos",
+      "cat": "mostra um arquivo",
+      "cd": "entra em um diretório",
+      "matrix": "liga/desliga a chuva [on|off]",
+      "reset": "restaura tema e efeitos",
+      "specs": "tecnologias deste site",
+      "banner": "exibe o banner",
+      "play": "joga debug_hunt.exe",
+      "history": "comandos desta sessão"
     },
     "themeUsage": "uso: theme <{themes}>",
     "themeSet": "tema alterado para {theme}.",
@@ -133,14 +146,42 @@
     "statsResult": "repos públicos: {repos} · seguidores: {followers} · seguindo: {following}",
     "statsError": "não foi possível obter as estatísticas.",
     "sudo": "boa tentativa. este incidente será reportado.",
-    "secret": "psst... tente o código Konami."
+    "secret": "psst... tente o código Konami.",
+    "now": "atualmente: construindo aplicações full stack com React, TypeScript e Node.js — e aberto a vagas sênior.",
+    "catUsage": "uso: cat <arquivo>",
+    "catNoSuch": "cat: arquivo não encontrado: {file}",
+    "secrets": "psst... mencione \"cat secrets.txt\" na sua mensagem — vou saber que você explorou tudo.",
+    "cdEntered": "entrou em ~/{dir} — rolando até lá.",
+    "cdNoSuch": "cd: diretório não encontrado: {dir}",
+    "matrixStatus": "a chuva está {state}. uso: matrix [on|off]",
+    "matrixSet": "chuva {state}. salvo para a próxima visita.",
+    "on": "ligada",
+    "off": "desligada",
+    "reset": "tema e efeitos restaurados.",
+    "hireProgress": "gerando proposta... [{bar}] {pct}%",
+    "hireReady": "proposta pronta. indo para o formulário de contato...",
+    "hireMessage": "Olá, Wotson! Gostaria de conversar sobre uma oportunidade.",
+    "specsTitle": "especificações:",
+    "launching": "iniciando {game}...",
+    "historyEmpty": "sem histórico ainda.",
+    "sudoGranted": "permissão concedida.",
+    "sudoHere": "aqui está.",
+    "konamiTitle": "░░░ SEGREDO DESBLOQUEADO ░░░",
+    "konamiBody": "você achou o código Konami. respeito.",
+    "konamiHint": "digite \"snake\" para jogar um jogo escondido.",
+    "konamiAgainTitle": "░░░ DE NOVO? ░░░",
+    "konamiAgainBody": "não há mais nada para desbloquear. aproveite o show de luzes.",
+    "adminAccess": "> acessando /admin"
   },
   "boot": {
     "lines": {
       "init": "inicializando sistema...",
       "modules": "carregando módulos [ok]",
       "i18n": "carregando idioma pt-BR [ok]",
-      "welcome": "bem-vindo."
+      "welcome": "bem-vindo.",
+      "mount": "montando /portfolio...",
+      "user": "usuário: wotson_sula",
+      "status": "status: aberto a oportunidades"
     },
     "skip": "pressione qualquer tecla para pular"
   },
@@ -151,7 +192,7 @@
       "help": "setas / WASD para mover · espaço para pausar",
       "score": "pontos: {score}",
       "gameOver": "fim de jogo — pontos: {score}. Enter para reiniciar.",
-      "unlocked": "código Konami aceito. snake desbloqueado."
+      "go": "setas para mover. vai!"
     },
     "hunt": {
       "title": "debug_hunt.exe",
@@ -159,7 +200,8 @@
       "score": "bugs: {score}",
       "time": "tempo: {time}s",
       "over": "tempo esgotado — {score} bugs corrigidos. Enter para reiniciar."
-    }
+    },
+    "start": "[ iniciar ]"
   },
   "context": {
     "copyLink": "copiar link",
@@ -173,5 +215,28 @@
     "away": "volte logo_",
     "soundOn": "som ligado",
     "soundOff": "som desligado"
+  },
+  "hud": {
+    "label": "Status",
+    "uptime": "tempo na página",
+    "scrolled": "rolado",
+    "available": "disponível"
+  },
+  "float": {
+    "terminal": "terminal `",
+    "devMode": "dev_mode",
+    "devTitle": "// notas do desenvolvedor",
+    "note1": "Next.js 16 com Cache Components: as duas versões de idioma são HTML estático, e os dados do GitHub são cacheados no servidor por hora.",
+    "note2": "Seção de projetos fixa com scroll vertical convertido em translateX via requestAnimationFrame, sem bibliotecas.",
+    "note3": "Terminal: o parser de comandos é uma função pura com testes unitários; os efeitos (tema, idioma, navegação) são aplicados pelo componente.",
+    "note4": "Chuva de caracteres em <canvas>, pausada com a aba oculta e desligada com prefers-reduced-motion.",
+    "note5": "Cards com flip 3D em CSS (preserve-3d + backface-visibility) e a face oculta marcada como inert.",
+    "note6": "Formulário com Server Action, validação zod no servidor, honeypot e envio via Resend.",
+    "close": "Fechar notas"
+  },
+  "hint": "dica: pressione ` para abrir o terminal e 1–5 para pular entre seções",
+  "console": {
+    "hello": "opa, você abriu o console.",
+    "source": "código: {repo} — email: {email}"
   }
 }
