@@ -3,6 +3,7 @@ import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { SideNav } from "@/components/layout/SideNav";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { Hero } from "@/components/sections/Hero";
+import { Profile } from "@/components/sections/Profile";
 import { Work } from "@/components/sections/Work";
 
 export default async function HomePage() {
@@ -14,7 +15,8 @@ export default async function HomePage() {
       <main>
         <Hero />
         <Work />
-        {(["profile", "experience", "contact"] as const).map((id) => (
+        <Profile />
+        {(["experience", "contact"] as const).map((id) => (
           <section key={id} id={id} className="section min-h-screen">
             {id}
           </section>
