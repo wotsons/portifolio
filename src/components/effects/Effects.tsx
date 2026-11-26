@@ -1,5 +1,6 @@
 "use client";
 
+import { Terminal } from "@/components/terminal/Terminal";
 import { CustomCursor } from "./CustomCursor";
 import { MatrixRain } from "./MatrixRain";
 import { RevealObserver } from "./RevealObserver";
@@ -10,6 +11,7 @@ export function Effects() {
     <>
       <MatrixRain />
       <RevealObserver />
+      <Terminal />
       <CustomCursor />
     </>
   );
