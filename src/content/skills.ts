@@ -5,11 +5,15 @@ import type { Highlight, Skill } from "./types";
 export const skills: Skill[] = [
   { name: "React / React Native", level: 95 },
   { name: "TypeScript / JavaScript", level: 92 },
+  { name: "Node.js / Express", level: 85 },
   { name: "Next.js", level: 85 },
-  { name: "Redux / Redux Toolkit", level: 90 },
+  { name: "Redux / React Query / Zustand", level: 90 },
   { name: "CSS / Tailwind / Styled-Components", level: 92 },
+  { name: "PostgreSQL / MySQL", level: 72 },
+  { name: "MongoDB / Redis", level: 70 },
+  { name: "Docker / CI/CD (Jenkins)", level: 70 },
   { name: "Jest / Testing Library / Vitest", level: 75 },
-  { name: "Node.js / Express", level: 72 },
+  { name: "AWS (EC2, S3, API Gateway)", level: 55 },
 ];
 
 export const highlights: Highlight[] = [

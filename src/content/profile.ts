@@ -4,8 +4,8 @@ import type { Localized } from "./types";
 export const profile = {
   name: "Wotson Sula",
   role: {
-    "pt-BR": "Desenvolvedor Front-end",
-    en: "Front-end Developer",
+    "pt-BR": "Desenvolvedor Full Stack",
+    en: "Full Stack Developer",
   } satisfies Localized,
   location: {
     "pt-BR": "João Pessoa, PB · Brasil",
@@ -14,17 +14,17 @@ export const profile = {
   yearsOfExperience: 5,
   tagline: {
     "pt-BR":
-      "Construo interfaces React e TypeScript rápidas, escaláveis e pixel-perfect — com foco em arquitetura de componentes e performance.",
-    en: "I build fast, scalable, pixel-perfect React and TypeScript interfaces — with a focus on component architecture and performance.",
+      "Construo aplicações web de ponta a ponta com React, TypeScript e Node.js — interfaces rápidas e pixel-perfect, APIs e entrega contínua.",
+    en: "I build web applications end to end with React, TypeScript and Node.js — fast, pixel-perfect interfaces, APIs and continuous delivery.",
   } satisfies Localized,
   bio: {
     "pt-BR": [
-      "Sou desenvolvedor front-end com 5 anos de experiência, especializado no ecossistema React e TypeScript. Construo interfaces pixel-perfect, dinâmicas e altamente interativas, sempre priorizando a experiência do usuário.",
-      "Tenho histórico sólido na construção de aplicações performáticas e escaláveis, com expertise em arquitetura de componentes modulares e otimização de performance (Web Vitals). Hoje atuo em uma plataforma de atendimento que processa mais de 4 milhões de chats por mês.",
+      "Sou desenvolvedor full stack com 5 anos de experiência, especializado no ecossistema React, TypeScript e Node.js. No front-end, construo interfaces pixel-perfect, dinâmicas e altamente interativas; no back-end, trabalho com Node.js, Express, bancos SQL e NoSQL e integração de APIs REST.",
+      "Tenho histórico sólido em aplicações performáticas e escaláveis: arquitetura de componentes modulares, otimização de performance (Web Vitals) e pipelines de CI/CD. Hoje atuo em uma plataforma de atendimento que processa mais de 4 milhões de chats por mês.",
     ],
     en: [
-      "I'm a front-end developer with 5 years of experience, specialized in the React and TypeScript ecosystem. I build pixel-perfect, dynamic and highly interactive interfaces that put the user experience first.",
-      "I have a solid track record building performant, scalable applications, with expertise in modular component architecture and performance optimization (Web Vitals). Today I work on a customer-service platform that handles more than 4 million chats a month.",
+      "I'm a full stack developer with 5 years of experience, specialized in the React, TypeScript and Node.js ecosystem. On the front end I build pixel-perfect, dynamic and highly interactive interfaces; on the back end I work with Node.js, Express, SQL and NoSQL databases and REST API integration.",
+      "I have a solid track record with performant, scalable applications: modular component architecture, performance optimization (Web Vitals) and CI/CD pipelines. Today I work on a customer-service platform that handles more than 4 million chats a month.",
     ],
   } satisfies Localized<string[]>,
   email: "wotsonbsf@hotmail.com",
