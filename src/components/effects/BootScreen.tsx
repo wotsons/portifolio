@@ -12,9 +12,16 @@ const KEY = "booted";
 export function BootScreen() {
   const t = useTranslations("boot");
   const [state, setState] = useState<"off" | "on" | "leaving">("off");
-  const text = [t("lines.init"), t("lines.modules"), t("lines.i18n"), t("lines.welcome")].join(
-    "\n",
-  );
+  const text = [
+    t("lines.init"),
+    t("lines.modules"),
+    t("lines.i18n"),
+    t("lines.mount"),
+    t("lines.user"),
+    t("lines.status"),
+    "",
+    t("lines.welcome"),
+  ].join("\n");
   const { visible, done } = useTypewriter(text, {
     speed: 14,
     newlinePause: 120,

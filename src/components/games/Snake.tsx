@@ -1,12 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/Button";
 import { GameModal } from "./GameModal";
 import { GRID, initialState, step, turn, type Dir } from "./snake-logic";
 
 const CELL = 16;
-const TICK = 110;
+const TICK = 120;
 
 const KEYS: Record<string, Dir> = {
   ArrowUp: "up",
@@ -24,7 +25,15 @@ export function Snake({ onClose }: { onClose: () => void }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [state, setState] = useState(initialState);
   const [paused, setPaused] = useState(false);
+  const [started, setStarted] = useState(false);
   const queued = useRef<Dir | null>(null);
+
+  const start = useCallback(() => {
+    queued.current = null;
+    setState(initialState());
+    setPaused(false);
+    setStarted(true);
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -36,16 +45,15 @@ export function Snake({ onClose }: { onClose: () => void }) {
         e.preventDefault();
         setPaused((p) => !p);
       } else if (e.key === "Enter") {
-        setState(initialState());
-        setPaused(false);
+        start();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [start]);
 
   useEffect(() => {
-    if (paused || state.over) return;
+    if (!started || paused || state.over) return;
     const timer = window.setInterval(() => {
       setState((s) => {
         const dir = queued.current ? turn(s, queued.current) : s.dir;
@@ -54,7 +62,7 @@ export function Snake({ onClose }: { onClose: () => void }) {
       });
     }, TICK);
     return () => clearInterval(timer);
-  }, [paused, state.over]);
+  }, [started, paused, state.over]);
 
   useEffect(() => {
     const ctx = canvas.current?.getContext("2d");
@@ -89,8 +97,13 @@ export function Snake({ onClose }: { onClose: () => void }) {
       <p className="mt-3 font-mono text-xs text-fg-2" aria-live="polite">
         {state.over
           ? t("snake.gameOver", { score: state.score })
-          : t("snake.score", { score: state.score })}
+          : started && state.score === 0
+            ? t("snake.go")
+            : t("snake.score", { score: state.score })}
       </p>
+      <Button className="mt-3 h-9 w-full" onClick={start} disabled={started && !state.over}>
+        {t("start")}
+      </Button>
     </GameModal>
   );
 }

@@ -2,12 +2,13 @@
 
 import { Bug } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { Button } from "@/components/ui/Button";
 import { GameModal } from "./GameModal";
 
-const DURATION = 20;
-const SPAWN_MS = 650;
-const LIFETIME_MS = 1100;
+const DURATION = 15;
+const SPAWN_MS = 700;
+const LIFETIME_MS = 1200;
 
 interface Target {
   id: number;
@@ -15,41 +16,52 @@ interface Target {
   y: number;
 }
 
+type Phase = "idle" | "running" | "over";
+
 export function DebugHunt({ onClose }: { onClose: () => void }) {
   const t = useTranslations("games");
-  const [round, setRound] = useState(0);
+  const [phase, setPhase] = useState<Phase>("idle");
   const [score, setScore] = useState(0);
   const [time, setTime] = useState(DURATION);
   const [bugs, setBugs] = useState<Target[]>([]);
-  const over = time <= 0;
+
+  const start = useCallback(() => {
+    setScore(0);
+    setTime(DURATION);
+    setBugs([]);
+    setPhase("running");
+  }, []);
 
   useEffect(() => {
-    if (over) return;
+    if (phase !== "running") return;
     let id = 0;
     const spawn = window.setInterval(() => {
       const bug = { id: ++id, x: 6 + Math.random() * 82, y: 6 + Math.random() * 78 };
       setBugs((b) => [...b, bug]);
       window.setTimeout(() => setBugs((b) => b.filter((x) => x.id !== bug.id)), LIFETIME_MS);
     }, SPAWN_MS);
-    const clock = window.setInterval(() => setTime((s) => s - 1), 1000);
+    let remaining = DURATION;
+    const clock = window.setInterval(() => {
+      remaining -= 1;
+      setTime(remaining);
+      if (remaining <= 0) {
+        setPhase("over");
+        setBugs([]);
+      }
+    }, 1000);
     return () => {
       clearInterval(spawn);
       clearInterval(clock);
     };
-  }, [over, round]);
+  }, [phase]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Enter" && over) {
-        setScore(0);
-        setTime(DURATION);
-        setBugs([]);
-        setRound((r) => r + 1);
-      }
+      if (e.key === "Enter" && phase !== "running") start();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [over]);
+  }, [phase, start]);
 
   return (
     <GameModal
@@ -60,14 +72,15 @@ export function DebugHunt({ onClose }: { onClose: () => void }) {
     >
       <div className="mb-2 flex justify-between font-mono text-xs text-fg-2" aria-live="polite">
         <span>{t("hunt.score", { score })}</span>
-        <span>{t("hunt.time", { time: Math.max(0, time) })}</span>
+        <span>{t("hunt.time", { time })}</span>
       </div>
       <div className="relative h-[260px] overflow-hidden rounded-lg border border-line bg-bg-deep">
-        {over ? (
+        {phase === "over" && (
           <p className="absolute inset-0 grid place-items-center p-6 text-center font-mono text-xs text-fg-2">
             {t("hunt.over", { score })}
           </p>
-        ) : (
+        )}
+        {phase === "running" &&
           bugs.map((b) => (
             <button
               key={b.id}
@@ -82,9 +95,11 @@ export function DebugHunt({ onClose }: { onClose: () => void }) {
             >
               <Bug className="size-5" />
             </button>
-          ))
-        )}
+          ))}
       </div>
+      <Button className="mt-3 h-9 w-full" onClick={start} disabled={phase === "running"}>
+        {t("start")}
+      </Button>
     </GameModal>
   );
 }
