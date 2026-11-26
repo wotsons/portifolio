@@ -33,7 +33,12 @@ export function useHorizontalScroll<W extends HTMLElement, T extends HTMLElement
     let frame = 0;
 
     const measure = () => {
-      maxTranslate = Math.max(0, el.scrollWidth - (el.parentElement?.clientWidth ?? 0));
+      // Visible width excludes the parent's left padding (the fade gutter).
+      const parent = el.parentElement;
+      const visible = parent
+        ? parent.clientWidth - parseFloat(getComputedStyle(parent).paddingLeft)
+        : 0;
+      maxTranslate = Math.max(0, el.scrollWidth - visible);
       wrap.style.height = `${window.innerHeight + maxTranslate}px`;
       update();
     };

@@ -9,6 +9,8 @@
   --accent-ink: #04201c;
   --pad-left: 200px;
   --pad-right: 64px;
+  /* Width of the soft edge where pinned project cards fade out. */
+  --fade: 48px;
   color-scheme: dark;
 }
 
@@ -42,6 +44,7 @@
   :root {
     --pad-left: 120px;
     --pad-right: 32px;
+    --fade: 32px;
   }
 }
 
@@ -120,6 +123,13 @@
       position: static !important;
       height: auto !important;
       overflow: visible !important;
+    }
+
+    /* Drop the carousel's edge fade and the gutter it extends into. */
+    [data-print-unclip] {
+      mask-image: none !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
     }
 
     [data-print-track] {

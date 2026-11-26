@@ -26,7 +26,21 @@ export function WorkCarousel({ heading, hint, children }: Props) {
         <div className="max-w-[960px]" style={{ paddingRight: "var(--pad-right)" }}>
           {heading}
         </div>
-        <div className={cn(!pinned && "-mb-4 [scrollbar-width:thin] overflow-x-auto pb-4")}>
+        {/*
+         * While pinned, the viewport extends --fade px into the gutter left of
+         * the content column and fades out there (and at the right edge), so
+         * cards dissolve before reaching the fixed side nav instead of passing
+         * under it. At rest the first card sits just past the fade.
+         */}
+        <div
+          data-print-static
+          data-print-unclip
+          className={cn(
+            pinned
+              ? "-ml-(--fade) overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_var(--fade),#000_calc(100%-var(--fade)),transparent)] pl-(--fade)"
+              : "-mb-4 [scrollbar-width:thin] overflow-x-auto pb-4",
+          )}
+        >
           <ul
             ref={track}
             data-print-track
@@ -34,7 +48,9 @@ export function WorkCarousel({ heading, hint, children }: Props) {
               "flex w-max gap-6 will-change-transform",
               !pinned && "snap-x snap-mandatory",
             )}
-            style={{ paddingRight: "var(--pad-right)" }}
+            style={{
+              paddingRight: pinned ? "calc(var(--pad-right) + var(--fade))" : "var(--pad-right)",
+            }}
           >
             {children}
           </ul>
