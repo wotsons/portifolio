@@ -30,6 +30,6 @@ export function applyAccentTheme(theme: AccentTheme) {
  * Inline script run before paint so a persisted accent theme doesn't flash.
  * Kept dependency-free because it's serialized into <head>.
  */
-export const themeInitScript = `(function(){try{var t=localStorage.getItem(${JSON.stringify(
+export const themeInitScript = `(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,
 )});var m=${JSON.stringify(ACCENT_THEMES)};if(t&&m[t]){var r=document.documentElement;r.style.setProperty('--accent',m[t].accent);r.style.setProperty('--accent-ink',m[t].ink);}}catch(e){}})();`;

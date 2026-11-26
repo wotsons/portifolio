@@ -21,7 +21,7 @@ export async function Experience() {
 
       <ol className="relative border-l border-line">
         {experience.map((job, i) => (
-          <li key={`${job.company}-${job.start}`} className="relative pb-12 pl-8 last:pb-0">
+          <li key={`${job.company}-${job.start}`} className="reveal relative pb-12 pl-8 last:pb-0">
             <span
               aria-hidden
               className={`absolute top-1.5 -left-[5px] size-[9px] rounded-full border ${

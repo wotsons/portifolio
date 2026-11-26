@@ -112,6 +112,21 @@
   }
 }
 
+@layer components {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 400ms var(--ease-out-expo),
+      transform 400ms var(--ease-out-expo);
+  }
+
+  .js .reveal[data-visible] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @layer utilities {
   /* Hide native cursor only when the custom cursor is active (fine pointers). */
   .cursor-custom,

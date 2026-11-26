@@ -14,13 +14,13 @@ export async function Profile() {
     <section id="profile" aria-labelledby="profile-title" className="section">
       <SectionHeading id="profile" label={t("label")} title={t("title")} />
 
-      <div className="flex max-w-[62ch] flex-col gap-4 text-[17px] leading-7 text-fg-2">
+      <div className="reveal flex max-w-[62ch] flex-col gap-4 text-[17px] leading-7 text-fg-2">
         {profile.bio[locale].map((p) => (
           <p key={p.slice(0, 24)}>{p}</p>
         ))}
       </div>
 
-      <div className="mt-16 grid grid-cols-2 gap-12 max-[900px]:grid-cols-1">
+      <div className="reveal mt-16 grid grid-cols-2 gap-12 max-[900px]:grid-cols-1">
         <div>
           <h3 className="mono-label mb-5 text-accent">{t("highlights")}</h3>
           <ul className="grid gap-3">

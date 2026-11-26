@@ -11,7 +11,7 @@ interface Props {
 export function SectionHeading({ id, label, title, subtitle }: Props) {
   const index = SECTIONS.indexOf(id) + 1;
   return (
-    <header className="mb-12">
+    <header className="reveal mb-12">
       <p className="mono-label mb-3">
         <span className="text-accent">{pad3(index)}</span>
         {label}

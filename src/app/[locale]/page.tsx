@@ -1,3 +1,4 @@
+import { Effects } from "@/components/effects/Effects";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { SideNav } from "@/components/layout/SideNav";
@@ -22,6 +23,7 @@ export default async function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <Effects />
     </>
   );
 }
