@@ -132,11 +132,11 @@
       "play": "joga debug_hunt.exe",
       "history": "comandos desta sessão"
     },
-    "themeUsage": "uso: theme <{themes}>",
+    "themeUsage": "uso: theme '<'{themes}'>'",
     "themeSet": "tema alterado para {theme}.",
-    "langUsage": "uso: lang <pt|en>",
+    "langUsage": "uso: lang '<'pt|en'>'",
     "langSet": "idioma alterado.",
-    "gotoUsage": "uso: goto <{sections}>",
+    "gotoUsage": "uso: goto '<'{sections}'>'",
     "resumeOpening": "abrindo currículo...",
     "statsLoading": "consultando api.github.com...",
     "statsResult": "repos públicos: {repos} · seguidores: {followers} · seguindo: {following}",
@@ -144,7 +144,7 @@
     "sudo": "boa tentativa. este incidente será reportado.",
     "secret": "psst... tente o código Konami.",
     "now": "atualmente: construindo aplicações full stack com React, TypeScript e Node.js — e aberto a vagas sênior.",
-    "catUsage": "uso: cat <arquivo>",
+    "catUsage": "uso: cat '<'arquivo'>'",
     "catNoSuch": "cat: arquivo não encontrado: {file}",
     "secrets": "psst... mencione \"cat secrets.txt\" na sua mensagem — vou saber que você explorou tudo.",
     "cdEntered": "entrou em ~/{dir} — rolando até lá.",
@@ -167,7 +167,7 @@
     "konamiHint": "digite \"snake\" para jogar um jogo escondido.",
     "konamiAgainTitle": "░░░ DE NOVO? ░░░",
     "konamiAgainBody": "não há mais nada para desbloquear. aproveite o show de luzes.",
-    "adminAccess": "> acessando /admin"
+    "adminAccess": "'>' acessando /admin"
   },
   "boot": {
     "lines": {
@@ -225,7 +225,7 @@
     "note1": "Next.js 16 com Cache Components: as duas versões de idioma são HTML estático, e os dados do GitHub são cacheados no servidor por hora.",
     "note2": "Seção de projetos fixa com scroll vertical convertido em translateX via requestAnimationFrame, sem bibliotecas.",
     "note3": "Terminal: o parser de comandos é uma função pura com testes unitários; os efeitos (tema, idioma, navegação) são aplicados pelo componente.",
-    "note4": "Chuva de caracteres em <canvas>, pausada com a aba oculta e desligada com prefers-reduced-motion.",
+    "note4": "Chuva de caracteres em '<'canvas'>', pausada com a aba oculta e desligada com prefers-reduced-motion.",
     "note5": "Cards com flip 3D em CSS (preserve-3d + backface-visibility) e a face oculta marcada como inert.",
     "note6": "Formulário com Server Action, validação zod no servidor, honeypot e envio via Resend.",
     "close": "Fechar notas"

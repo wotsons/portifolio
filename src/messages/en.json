@@ -132,11 +132,11 @@
       "play": "play debug_hunt.exe",
       "history": "commands from this session"
     },
-    "themeUsage": "usage: theme <{themes}>",
+    "themeUsage": "usage: theme '<'{themes}'>'",
     "themeSet": "theme set to {theme}.",
-    "langUsage": "usage: lang <pt|en>",
+    "langUsage": "usage: lang '<'pt|en'>'",
     "langSet": "language changed.",
-    "gotoUsage": "usage: goto <{sections}>",
+    "gotoUsage": "usage: goto '<'{sections}'>'",
     "resumeOpening": "opening resume...",
     "statsLoading": "querying api.github.com...",
     "statsResult": "public repos: {repos} · followers: {followers} · following: {following}",
@@ -144,7 +144,7 @@
     "sudo": "nice try. this incident will be reported.",
     "secret": "psst... try the Konami code.",
     "now": "currently: building full stack apps with React, TypeScript and Node.js — and open to senior roles.",
-    "catUsage": "usage: cat <file>",
+    "catUsage": "usage: cat '<'file'>'",
     "catNoSuch": "cat: no such file: {file}",
     "secrets": "psst... mention \"cat secrets.txt\" in your message — I'll know you explored everything.",
     "cdEntered": "entered ~/{dir} — scrolling there now.",
@@ -167,7 +167,7 @@
     "konamiHint": "type \"snake\" to play a hidden game.",
     "konamiAgainTitle": "░░░ YOU DID IT AGAIN ░░░",
     "konamiAgainBody": "there is nothing left to unlock. just enjoy the light show.",
-    "adminAccess": "> access /admin"
+    "adminAccess": "'>' access /admin"
   },
   "boot": {
     "lines": {
@@ -225,7 +225,7 @@
     "note1": "Next.js 16 with Cache Components: both language versions are static HTML, and GitHub data is cached on the server hourly.",
     "note2": "Pinned work section where vertical scroll drives translateX via requestAnimationFrame, no libraries.",
     "note3": "Terminal: the command parser is a pure, unit-tested function; the component applies its effects (theme, language, navigation).",
-    "note4": "Character rain on <canvas>, paused while the tab is hidden and off with prefers-reduced-motion.",
+    "note4": "Character rain on '<'canvas'>', paused while the tab is hidden and off with prefers-reduced-motion.",
     "note5": "3D flip cards in CSS (preserve-3d + backface-visibility) with the hidden face marked inert.",
     "note6": "Contact form uses a Server Action with server-side zod validation, a honeypot and Resend.",
     "close": "Close notes"
