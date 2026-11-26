@@ -1,6 +1,7 @@
 import { Mail } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import GithubIcon from "@/assets/icons/github.svg?react";
+import LinkedinIcon from "@/assets/icons/linkedin.svg?react";
 import { buttonClasses } from "@/components/ui/Button";
 import { profile } from "@/content/profile";
 import { skills } from "@/content/skills";
@@ -91,7 +92,7 @@ export async function Hero() {
                   aria-label={label}
                   className="block text-muted transition-colors hover:text-accent"
                 >
-                  <Icon className="size-[18px]" />
+                  <Icon aria-hidden className="size-[18px]" />
                 </a>
               </li>
             ))}

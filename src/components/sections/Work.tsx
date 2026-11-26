@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import { GithubIcon } from "@/components/ui/BrandIcons";
+import GithubIcon from "@/assets/icons/github.svg?react";
 import { FlipCard } from "@/components/ui/FlipCard";
 import { ProjectPreview } from "@/components/ui/ProjectPreview";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -86,7 +86,7 @@ export async function Work() {
                         rel="noreferrer"
                         className="flex items-center gap-1.5 text-fg-2 transition-colors hover:text-accent"
                       >
-                        <GithubIcon className="size-3.5" /> {t("source")}
+                        <GithubIcon aria-hidden className="size-3.5" /> {t("source")}
                       </a>
                     )}
                   </div>

@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
+      // `import Icon from "./icon.svg?react"` → React component (size it with className).
+      "*.svg": {
+        condition: { query: /[?&]react(?=&|$)/ },
+        loaders: [{ loader: "@svgr/webpack", options: { dimensions: false } }],
+        as: "*.js",
+      },
     },
   },
 };

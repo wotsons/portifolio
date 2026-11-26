@@ -1,9 +1,10 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import GaugeIcon from "@/assets/icons/gauge.svg?react";
 import type { PreviewKind } from "@/content/types";
 import { cn } from "@/lib/utils";
 
-// Drawn with theme tokens (not image files) so the illustrations follow the accent theme.
+// Drawn with theme tokens and currentColor so the illustrations follow the accent theme.
 
 const soft = "bg-[color-mix(in_srgb,var(--accent)_22%,transparent)]";
 const bar = "h-1.5 rounded-full bg-line-strong";
@@ -101,19 +102,7 @@ function Performance() {
   const bars = [92, 80, 74, 61, 55, 48];
   return (
     <Window className="flex items-center gap-4 px-4">
-      <svg viewBox="0 0 64 64" className="size-[70px] shrink-0 -rotate-90" aria-hidden>
-        <circle cx="32" cy="32" r="26" fill="none" strokeWidth="6" className="stroke-raised" />
-        <circle
-          cx="32"
-          cy="32"
-          r="26"
-          fill="none"
-          strokeWidth="6"
-          strokeLinecap="round"
-          strokeDasharray={`${0.94 * 163.4} 163.4`}
-          className="stroke-accent"
-        />
-      </svg>
+      <GaugeIcon aria-hidden className="size-[70px] shrink-0 text-accent" />
       <div className="flex h-full flex-1 flex-col">
         <span className="font-mono text-[15px] leading-5 text-accent">-17%</span>
         <span className={cn(bar, "mt-1 w-2/3")} />
