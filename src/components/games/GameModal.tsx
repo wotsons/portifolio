@@ -27,7 +27,7 @@ export function GameModal({ title, help, closeLabel, onClose, children }: Props)
 
   return (
     <div
-      className="fixed inset-0 z-[80] grid place-items-center bg-bg-deep/80 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] grid place-items-center bg-bg-deep/80 p-4 backdrop-blur-sm print:hidden"
       onClick={onClose}
     >
       <div

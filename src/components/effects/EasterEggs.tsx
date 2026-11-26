@@ -137,7 +137,7 @@ function Screensaver() {
     <span
       ref={el}
       aria-hidden
-      className="pointer-events-none fixed top-0 left-0 z-[70] font-mono text-3xl text-accent drop-shadow-[0_0_12px_var(--accent)]"
+      className="pointer-events-none fixed top-0 left-0 z-[70] font-mono text-3xl text-accent drop-shadow-[0_0_12px_var(--accent)] print:hidden"
     >
       {"{ }"}
     </span>
@@ -273,7 +273,7 @@ function ContextMenu() {
     <div
       ref={menu}
       role="menu"
-      className="fixed z-[95] min-w-[180px] rounded-lg border border-line-strong bg-raised p-1 font-mono text-xs shadow-float"
+      className="fixed z-[95] min-w-[180px] rounded-lg border border-line-strong bg-raised p-1 font-mono text-xs shadow-float print:hidden"
       style={{ left: pos.x, top: pos.y }}
     >
       {items.map((item) => (

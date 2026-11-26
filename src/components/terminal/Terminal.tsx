@@ -232,7 +232,7 @@ export function Terminal() {
       role="dialog"
       aria-label={t("title")}
       className={cn(
-        "fixed z-50 flex h-[min(380px,70vh)] w-[min(580px,calc(100vw-32px))] flex-col overflow-hidden rounded-xl border border-line-strong bg-bg-deep/95 shadow-float backdrop-blur",
+        "fixed z-50 flex h-[min(380px,70vh)] w-[min(580px,calc(100vw-32px))] flex-col overflow-hidden rounded-xl border border-line-strong bg-bg-deep/95 shadow-float backdrop-blur print:hidden",
         !pos && "right-4 bottom-18",
       )}
       style={pos ? { left: pos.x, top: pos.y } : undefined}

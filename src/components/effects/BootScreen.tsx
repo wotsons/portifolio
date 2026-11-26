@@ -61,7 +61,7 @@ export function BootScreen() {
     <div
       aria-hidden
       className={cn(
-        "fixed inset-0 z-[90] flex flex-col justify-center bg-bg-deep px-8 font-mono text-sm leading-6 transition-opacity duration-400 sm:px-[20vw]",
+        "fixed inset-0 z-[90] flex flex-col justify-center bg-bg-deep px-8 font-mono text-sm leading-6 transition-opacity duration-400 sm:px-[20vw] print:hidden",
         state === "leaving" && "opacity-0",
       )}
     >

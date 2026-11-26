@@ -12,7 +12,8 @@
   color-scheme: dark;
 }
 
-@theme inline {
+/* Emitted as CSS variables so print styles can swap in a light palette. */
+@theme {
   --color-bg-deep: #0a0e13;
   --color-bg: #0d1117;
   --color-card: #131922;
@@ -22,6 +23,9 @@
   --color-fg: #e6edf3;
   --color-fg-2: #a3b1bd;
   --color-muted: #7d8b97;
+}
+
+@theme inline {
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-negative: #f2645a;
@@ -84,9 +88,57 @@
   }
 
   @media print {
+    :root {
+      --color-bg-deep: #fff;
+      --color-bg: #fff;
+      --color-card: #fff;
+      --color-raised: #f2f4f5;
+      --color-line: rgb(0 0 0 / 0.12);
+      --color-line-strong: rgb(0 0 0 / 0.25);
+      --color-fg: #111;
+      --color-fg-2: #333;
+      --color-muted: #555;
+      --accent: #0f766e;
+      --accent-ink: #fff;
+    }
+
     body {
       background: #fff;
       color: #111;
+    }
+
+    /* Show everything that normally animates in. */
+    .js .reveal,
+    #home [style*="animation"] {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    /* Un-pin the work carousel and lay the cards out in a grid. */
+    [data-print-static] {
+      position: static !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    [data-print-track] {
+      transform: none !important;
+      width: auto !important;
+      flex-wrap: wrap;
+    }
+
+    /* Flip cards print their front face only. */
+    [data-print-flat] {
+      transform: none !important;
+    }
+
+    [data-print-flat] > :last-child {
+      display: none;
+    }
+
+    #home {
+      min-height: auto;
     }
   }
 }

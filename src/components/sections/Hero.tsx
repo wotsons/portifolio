@@ -105,7 +105,7 @@ export async function Hero() {
 
       <a
         href="#work"
-        className="absolute bottom-8 flex items-center gap-2 font-mono text-xs text-muted transition-colors hover:text-accent max-[700px]:hidden"
+        className="absolute bottom-8 flex items-center gap-2 font-mono text-xs text-muted transition-colors hover:text-accent max-[700px]:hidden print:hidden"
         style={{ left: "var(--pad-left)" }}
       >
         <span className="inline-block animate-bounce">↓</span> {t("scroll")}
