@@ -32,9 +32,8 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/wotson-sula",
   sourceRepo: "https://github.com/wotsons/portifolio",
   resume: {
-    // TODO: add the PDFs to /public
-    "pt-BR": "/resume-pt.pdf",
-    en: "/resume-en.pdf",
+    "pt-BR": "/resume/resume-pt.pdf",
+    en: "/resume/resume-en.pdf",
   } satisfies Localized,
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 } as const;

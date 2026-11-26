@@ -21,13 +21,13 @@ Open http://localhost:3000. It redirects to `/pt-BR` or `/en` based on your brow
 
 All personal data lives in `src/content/`. Search for `TODO` and replace each placeholder:
 
-| File                                           | What to change                                                          |
-| ---------------------------------------------- | ----------------------------------------------------------------------- |
-| `src/content/profile.ts`                       | Name, role, tagline, bio, email, GitHub username, LinkedIn, repo URL    |
-| `src/content/projects.ts`                      | Projects for the carousel (summary, stack, hardest part, impact, links) |
-| `src/content/experience.ts`                    | Work history, most recent first                                         |
-| `src/content/skills.ts`                        | Skill bars and highlights (certifications, talks...)                    |
-| `public/resume-pt.pdf`, `public/resume-en.pdf` | Your resume in each language                                            |
+| File                                                         | What to change                                                          |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| `src/content/profile.ts`                                     | Name, role, tagline, bio, email, GitHub username, LinkedIn, repo URL    |
+| `src/content/projects.ts`                                    | Projects for the carousel (summary, stack, hardest part, impact, links) |
+| `src/content/experience.ts`                                  | Work history, most recent first                                         |
+| `src/content/skills.ts`                                      | Skill bars and highlights (certifications, talks...)                    |
+| `public/resume/resume-pt.pdf`, `public/resume/resume-en.pdf` | Your resume in each language                                            |
 
 Localized fields use `{ "pt-BR": "...", en: "..." }`. UI copy is in `src/messages/{pt-BR,en}.json`. A unit test fails if the two files' keys drift apart.
 
