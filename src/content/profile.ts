@@ -1,41 +1,36 @@
 import type { Localized } from "./types";
 
-/**
- * Single source of truth for personal data.
- * Every field marked TODO must be replaced with your real information.
- */
+/** Single source of truth for personal data. */
 export const profile = {
-  name: "Wotson Sula", // TODO: confirm how your name should appear
+  name: "Wotson Sula",
   role: {
-    "pt-BR": "Engenheiro de Software Sênior",
-    en: "Senior Software Engineer",
+    "pt-BR": "Desenvolvedor Front-end",
+    en: "Front-end Developer",
   } satisfies Localized,
   location: {
-    "pt-BR": "Brasil · remoto", // TODO
-    en: "Brazil · remote", // TODO
+    "pt-BR": "João Pessoa, PB · Brasil",
+    en: "João Pessoa, Brazil",
   } satisfies Localized,
-  yearsOfExperience: 8, // TODO
+  yearsOfExperience: 5,
   tagline: {
-    // TODO: one sentence on what you build and the value you bring
     "pt-BR":
-      "Construo produtos web escaláveis de ponta a ponta — da arquitetura ao deploy — e ajudo times a entregar com qualidade.",
-    en: "I build scalable web products end to end — from architecture to deploy — and help teams ship with quality.",
+      "Construo interfaces React e TypeScript rápidas, escaláveis e pixel-perfect — com foco em arquitetura de componentes e performance.",
+    en: "I build fast, scalable, pixel-perfect React and TypeScript interfaces — with a focus on component architecture and performance.",
   } satisfies Localized,
   bio: {
-    // TODO: 2–3 short paragraphs. Lead with seniority, domain and impact.
     "pt-BR": [
-      "Sou engenheiro de software com foco em front-end e full-stack TypeScript. Nos últimos anos liderei a arquitetura de aplicações usadas por milhares de pessoas, cuidando de performance, acessibilidade e experiência de desenvolvimento.",
-      "Gosto de transformar problemas ambíguos em sistemas simples, mentorar outros devs e tomar decisões técnicas guiadas por métricas.",
+      "Sou desenvolvedor front-end com 5 anos de experiência, especializado no ecossistema React e TypeScript. Construo interfaces pixel-perfect, dinâmicas e altamente interativas, sempre priorizando a experiência do usuário.",
+      "Tenho histórico sólido na construção de aplicações performáticas e escaláveis, com expertise em arquitetura de componentes modulares e otimização de performance (Web Vitals). Hoje atuo em uma plataforma de atendimento que processa mais de 4 milhões de chats por mês.",
     ],
     en: [
-      "I'm a software engineer focused on front-end and full-stack TypeScript. Over the last few years I've led the architecture of applications used by thousands of people, owning performance, accessibility and developer experience.",
-      "I enjoy turning ambiguous problems into simple systems, mentoring other developers and making metric-driven technical decisions.",
+      "I'm a front-end developer with 5 years of experience, specialized in the React and TypeScript ecosystem. I build pixel-perfect, dynamic and highly interactive interfaces that put the user experience first.",
+      "I have a solid track record building performant, scalable applications, with expertise in modular component architecture and performance optimization (Web Vitals). Today I work on a customer-service platform that handles more than 4 million chats a month.",
     ],
   } satisfies Localized<string[]>,
-  email: "voce@exemplo.com", // TODO
-  github: "TODO_GITHUB_USERNAME", // TODO: your GitHub username (powers the activity graph)
-  linkedin: "https://www.linkedin.com/in/TODO", // TODO
-  sourceRepo: "https://github.com/TODO_GITHUB_USERNAME/portifolio", // TODO
+  email: "wotsonbsf@hotmail.com",
+  github: "wotsons",
+  linkedin: "https://www.linkedin.com/in/wotson-sula",
+  sourceRepo: "https://github.com/wotsons/portifolio",
   resume: {
     // TODO: add the PDFs to /public
     "pt-BR": "/resume-pt.pdf",
