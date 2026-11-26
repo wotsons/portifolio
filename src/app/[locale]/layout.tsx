@@ -31,6 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(profile.siteUrl),
     title,
+    icons: { icon: "/images/icon.svg" },
     description,
     authors: [{ name: profile.name, url: profile.siteUrl }],
     alternates: {
