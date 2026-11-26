@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio with a terminal/dev look: pinned horizontal project carousel with flip cards, a typing code window, an interactive terminal, live GitHub activity and a few easter eggs. Bilingual (pt-BR / en).
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router, Cache Components) · TypeScript · Tailwind CSS v4 · next-intl · Server Actions + zod + Resend · Vitest · Playwright · Vercel.
+
+## Getting started
+
+Requires Node 22 (see `.nvmrc`) and pnpm.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+nvm use
+pnpm install
+cp .env.example .env.local   # optional, see below
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. It redirects to `/pt-BR` or `/en` based on your browser language.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Make it yours
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All personal data lives in `src/content/`. Search for `TODO` and replace each placeholder:
 
-## Learn More
+| File                                           | What to change                                                          |
+| ---------------------------------------------- | ----------------------------------------------------------------------- |
+| `src/content/profile.ts`                       | Name, role, tagline, bio, email, GitHub username, LinkedIn, repo URL    |
+| `src/content/projects.ts`                      | Projects for the carousel (summary, stack, hardest part, impact, links) |
+| `src/content/experience.ts`                    | Work history, most recent first                                         |
+| `src/content/skills.ts`                        | Skill bars and highlights (certifications, talks...)                    |
+| `public/resume-pt.pdf`, `public/resume-en.pdf` | Your resume in each language                                            |
 
-To learn more about Next.js, take a look at the following resources:
+Localized fields use `{ "pt-BR": "...", en: "..." }`. UI copy is in `src/messages/{pt-BR,en}.json`. A unit test fails if the two files' keys drift apart.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable                             | Purpose                                                                                 |
+| ------------------------------------ | --------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`               | Production URL, used for canonical links, sitemap and OG images                         |
+| `RESEND_API_KEY`, `CONTACT_TO_EMAIL` | Enable the contact form. Without them the form shows an "unavailable, email me" message |
+| `CONTACT_FROM_EMAIL`                 | Optional sender on a domain verified in Resend                                          |
+| `GITHUB_TOKEN`                       | Optional, raises the GitHub API rate limit                                              |
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command                     | Description                                              |
+| --------------------------- | -------------------------------------------------------- |
+| `pnpm dev`                  | Dev server                                               |
+| `pnpm build` / `pnpm start` | Production build / serve                                 |
+| `pnpm lint` / `pnpm format` | ESLint / Prettier                                        |
+| `pnpm typecheck`            | Generates route types, then runs `tsc`                   |
+| `pnpm test`                 | Unit tests (Vitest)                                      |
+| `pnpm test:e2e`             | Smoke tests (Playwright; builds and serves on port 3100) |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Commits follow [Conventional Commits](https://www.conventionalcommits.org/), enforced by commitlint in a Husky hook. lint-staged formats staged files.
+
+## Easter eggs
+
+- Press <kbd>&#96;</kbd> to open the terminal (`help` lists commands; try `theme pink` or `lang en`).
+- Press <kbd>1</kbd>–<kbd>5</kbd> to jump between sections.
+- Konami code: ↑ ↑ ↓ ↓ ← → ← → B A.
+- Right-click anywhere, click the bug in the footer, or stay idle for 30 seconds.
+
+All motion respects `prefers-reduced-motion`.
+
+## Deploy
+
+Import the repo on [Vercel](https://vercel.com/new), set the environment variables above, and deploy. Vercel Analytics is already wired in.
