@@ -55,9 +55,12 @@ test("contact form shows validation errors", async ({ page }) => {
 test("terminal opens with the backtick key and runs commands", async ({ page, isMobile }) => {
   test.skip(isMobile, "keyboard shortcut is desktop-only");
   await open(page, "/en");
-  await page.keyboard.press("`");
   const input = page.getByLabel("Terminal command");
-  await expect(input).toBeFocused();
+  // The shortcut only exists after hydration, so retry the key press until it opens.
+  await expect(async () => {
+    if (!(await input.isVisible())) await page.keyboard.press("`");
+    await expect(input).toBeFocused({ timeout: 1_000 });
+  }).toPass({ timeout: 15_000 });
   await input.fill("goto contact");
   await input.press("Enter");
   await input.fill("help");
