@@ -12,12 +12,7 @@ export async function Experience() {
 
   return (
     <section id="experience" aria-labelledby="experience-title" className="section">
-      <SectionHeading
-        id="experience"
-        label={t("label")}
-        title={t("title")}
-        subtitle={t("subtitle")}
-      />
+      <SectionHeading id="experience" title={t("title")} subtitle={t("subtitle")} />
 
       <ol className="relative border-l border-line">
         {experience.map((job, i) => (

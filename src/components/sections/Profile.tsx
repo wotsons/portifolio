@@ -12,7 +12,7 @@ export async function Profile() {
 
   return (
     <section id="profile" aria-labelledby="profile-title" className="section">
-      <SectionHeading id="profile" label={t("label")} title={t("title")} />
+      <SectionHeading id="profile" title={t("title")} />
 
       <div className="reveal flex max-w-[62ch] flex-col gap-4 text-[17px] leading-7 text-fg-2">
         {profile.bio[locale].map((p) => (

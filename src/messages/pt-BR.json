@@ -30,7 +30,6 @@
     "social": "Redes"
   },
   "work": {
-    "label": "projetos",
     "title": "Projetos selecionados",
     "subtitle": "Sistemas que projetei, construí e coloquei em produção.",
     "hint": "role para navegar →",
@@ -49,7 +48,6 @@
     }
   },
   "profile": {
-    "label": "perfil",
     "title": "Sobre mim",
     "highlights": "// destaques",
     "skills": "// skills",
@@ -63,13 +61,11 @@
     "more": "mais"
   },
   "experience": {
-    "label": "experiência",
     "title": "Experiência profissional",
     "subtitle": "Onde trabalhei e o impacto que gerei.",
     "present": "atual"
   },
   "contact": {
-    "label": "contato",
     "title": "Vamos conversar",
     "intro": "Tem uma vaga, um projeto ou só quer trocar uma ideia?",
     "emailLabel": "Email",

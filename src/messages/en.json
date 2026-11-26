@@ -30,7 +30,6 @@
     "social": "Social"
   },
   "work": {
-    "label": "work",
     "title": "Selected work",
     "subtitle": "Systems I designed, built and shipped to production.",
     "hint": "scroll to browse →",
@@ -49,7 +48,6 @@
     }
   },
   "profile": {
-    "label": "profile",
     "title": "About me",
     "highlights": "// highlights",
     "skills": "// skills",
@@ -63,13 +61,11 @@
     "more": "more"
   },
   "experience": {
-    "label": "experience",
     "title": "Professional experience",
     "subtitle": "Where I've worked and the impact I've had.",
     "present": "present"
   },
   "contact": {
-    "label": "contact",
     "title": "Let's talk",
     "intro": "Got a role, a project, or just want to say hi?",
     "emailLabel": "Email",

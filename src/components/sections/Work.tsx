@@ -22,14 +22,7 @@ export async function Work() {
     <section id="work" aria-labelledby="work-title">
       <WorkCarousel
         hint={t("hint")}
-        heading={
-          <SectionHeading
-            id="work"
-            label={t("label")}
-            title={t("title")}
-            subtitle={t("subtitle")}
-          />
-        }
+        heading={<SectionHeading id="work" title={t("title")} subtitle={t("subtitle")} />}
       >
         {projects.map((p, i) => (
           <li key={p.slug} className="snap-start">

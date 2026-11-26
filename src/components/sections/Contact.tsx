@@ -8,7 +8,7 @@ export async function Contact() {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="section">
-      <SectionHeading id="contact" label={t("label")} title={t("title")} />
+      <SectionHeading id="contact" title={t("title")} />
       <div className="reveal mb-10 flex flex-col gap-2 font-mono text-[13px]">
         <p className="text-fg-2">
           <span className="text-accent">&gt;</span> {t("intro")}
