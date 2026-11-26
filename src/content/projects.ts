@@ -4,6 +4,7 @@ import type { Project } from "./types";
 export const projects: Project[] = [
   {
     slug: "atendimento",
+    preview: "chat",
     title: "Plataforma de Atendimento",
     status: "production",
     summary: {
@@ -24,6 +25,7 @@ export const projects: Project[] = [
   },
   {
     slug: "design-system",
+    preview: "components",
     title: "Biblioteca de Componentes",
     status: "production",
     summary: {
@@ -43,6 +45,7 @@ export const projects: Project[] = [
   },
   {
     slug: "performance",
+    preview: "performance",
     title: "Performance & Web Vitals",
     status: "production",
     summary: {
@@ -62,6 +65,7 @@ export const projects: Project[] = [
   },
   {
     slug: "nextjs-dashboard",
+    preview: "dashboard",
     title: "Next.js Dashboard",
     status: "production",
     summary: {
@@ -84,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     slug: "podcastr",
+    preview: "player",
     title: "Podcastr",
     status: "archived",
     summary: {
@@ -104,6 +109,7 @@ export const projects: Project[] = [
   },
   {
     slug: "portfolio",
+    preview: "terminal",
     title: "Portfolio",
     status: "production",
     summary: {

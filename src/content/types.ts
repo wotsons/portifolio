@@ -10,10 +10,17 @@ export function l<T>(value: Localized<T>, locale: Locale): T {
 
 export type ProjectStatus = "production" | "development" | "archived";
 
+/** Stylized UI illustration drawn in code for the card's preview area. */
+export type PreviewKind =
+  "chat" | "components" | "performance" | "dashboard" | "player" | "terminal";
+
 export interface Project {
   slug: string;
   title: string;
   status: ProjectStatus;
+  preview: PreviewKind;
+  /** Optional real screenshot (path under /public); replaces the illustration. */
+  image?: string;
   summary: Localized;
   stack: string[];
   challenge: Localized;

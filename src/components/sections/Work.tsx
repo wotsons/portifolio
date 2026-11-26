@@ -2,11 +2,15 @@ import { ExternalLink } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { FlipCard } from "@/components/ui/FlipCard";
+import { ProjectPreview } from "@/components/ui/ProjectPreview";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { projects } from "@/content/projects";
 import type { ProjectStatus } from "@/content/types";
 import { cn, pad3 } from "@/lib/utils";
 import { WorkCarousel } from "./WorkCarousel";
+
+/** Tags shown on the card front; the full stack is on the back. */
+const MAX_TAGS = 4;
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
   production: "text-accent border-[color-mix(in_srgb,var(--accent)_35%,transparent)]",
@@ -27,24 +31,32 @@ export async function Work() {
         {projects.map((p, i) => (
           <li key={p.slug} className="snap-start">
             <FlipCard
-              className="h-[420px] w-[340px] max-[420px]:w-[calc(100vw-96px)]"
+              className="h-[460px] w-[360px] max-[440px]:w-[calc(100vw-96px)]"
               flipLabel={t("flip")}
               flipBackLabel={t("flipBack")}
               front={
                 <>
-                  <p className="mono-label">project_{pad3(i + 1).slice(1)}.exe</p>
-                  <span
-                    className={cn(
-                      "mt-4 w-fit rounded-md border px-2 py-0.5 font-mono text-[11px] leading-4",
-                      STATUS_STYLES[p.status],
-                    )}
-                  >
-                    {t(`status.${p.status}`)}
-                  </span>
-                  <h3 className="mt-4 text-[22px] leading-7 font-medium text-fg">{p.title}</h3>
-                  <p className="mt-2 text-fg-2">{p.summary[locale]}</p>
-                  <ul className="mt-auto flex flex-wrap gap-1.5 pt-4">
-                    {p.stack.map((s) => (
+                  {/* Bleeds to the card edges (the face has p-6). */}
+                  <div className="-mx-6 -mt-6">
+                    <ProjectPreview kind={p.preview} image={p.image} alt={p.title} />
+                  </div>
+                  <div className="mt-4 flex items-center justify-between gap-3">
+                    <p className="mono-label">project_{pad3(i + 1).slice(1)}</p>
+                    <span
+                      className={cn(
+                        "rounded-md border px-2 py-0.5 font-mono text-[11px] leading-4",
+                        STATUS_STYLES[p.status],
+                      )}
+                    >
+                      {t(`status.${p.status}`)}
+                    </span>
+                  </div>
+                  <h3 className="mt-2 text-xl leading-7 font-medium text-fg">{p.title}</h3>
+                  <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-fg-2">
+                    {p.summary[locale]}
+                  </p>
+                  <ul className="mt-auto flex flex-wrap gap-1.5 pt-3">
+                    {p.stack.slice(0, MAX_TAGS).map((s) => (
                       <li
                         key={s}
                         className="rounded-md bg-raised px-2 py-0.5 font-mono text-[11px] leading-4 text-fg-2"
@@ -52,8 +64,13 @@ export async function Work() {
                         {s}
                       </li>
                     ))}
+                    {p.stack.length > MAX_TAGS && (
+                      <li className="px-1 py-0.5 font-mono text-[11px] leading-4 text-muted">
+                        +{p.stack.length - MAX_TAGS}
+                      </li>
+                    )}
                   </ul>
-                  <div className="mt-5 flex gap-5 border-t border-line pt-4 font-mono text-xs">
+                  <div className="mt-4 flex gap-5 border-t border-line pt-3 font-mono text-xs">
                     {p.liveUrl && (
                       <a
                         href={p.liveUrl}
