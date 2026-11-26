@@ -13,7 +13,7 @@ interface Props {
 }
 
 const face =
-  "absolute inset-0 flex flex-col rounded-xl border border-line bg-card p-6 transition-colors duration-150 [backface-visibility:hidden] group-hover:border-line-strong";
+  "absolute inset-0 flex flex-col overflow-y-auto rounded-xl border border-line bg-card p-6 transition-colors duration-150 [backface-visibility:hidden] group-hover:border-line-strong";
 
 export function FlipCard({ front, back, flipLabel, flipBackLabel, className }: Props) {
   const [flipped, setFlipped] = useState(false);

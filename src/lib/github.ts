@@ -62,16 +62,19 @@ export async function getRecentRepos(user: string, limit = 5): Promise<Repo[] | 
       pushed_at: string;
       fork: boolean;
     }>;
-    return data
-      .filter((r) => !r.fork)
-      .map((r) => ({
-        name: r.name,
-        description: r.description,
-        url: r.html_url,
-        language: r.language,
-        stars: r.stargazers_count,
-        pushedAt: r.pushed_at,
-      }));
+    return (
+      data
+        // Skip forks and the profile README repo (named after the user).
+        .filter((r) => !r.fork && r.name.toLowerCase() !== user.toLowerCase())
+        .map((r) => ({
+          name: r.name,
+          description: r.description,
+          url: r.html_url,
+          language: r.language,
+          stars: r.stargazers_count,
+          pushedAt: r.pushed_at,
+        }))
+    );
   } catch {
     return null;
   }
