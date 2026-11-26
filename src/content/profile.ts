@@ -3,27 +3,27 @@ import type { Localized } from "./types";
 export const profile = {
   name: "Wotson Sula",
   role: {
-    "pt-BR": "Desenvolvedor Full Stack",
-    en: "Full Stack Developer",
+    "pt-BR": "Desenvolvedor Full-Stack",
+    en: "Full-Stack Developer",
   } satisfies Localized,
   location: {
-    "pt-BR": "João Pessoa, PB · Brasil",
-    en: "João Pessoa, Brazil",
+    "pt-BR": "Brasil · Remoto",
+    en: "Brazil · Remote",
   } satisfies Localized,
   yearsOfExperience: 5,
   tagline: {
     "pt-BR":
-      "Construo aplicações web de ponta a ponta com React, TypeScript e Node.js — interfaces rápidas e pixel-perfect, APIs e entrega contínua.",
-    en: "I build web applications end to end with React, TypeScript and Node.js — fast, pixel-perfect interfaces, APIs and continuous delivery.",
+      "Construo aplicações web escaláveis e sistemas de comunicação em tempo real, de ponta a ponta — do React ao Node.js, filas e banco de dados.",
+    en: "I build scalable web applications and real-time communication systems end to end — from React to Node.js, queues and databases.",
   } satisfies Localized,
   bio: {
     "pt-BR": [
-      "Sou desenvolvedor full stack com 5 anos de experiência, especializado no ecossistema React, TypeScript e Node.js. No front-end, construo interfaces pixel-perfect, dinâmicas e altamente interativas; no back-end, trabalho com Node.js, Express, bancos SQL e NoSQL e integração de APIs REST.",
-      "Tenho histórico sólido em aplicações performáticas e escaláveis: arquitetura de componentes modulares, otimização de performance (Web Vitals) e pipelines de CI/CD. Hoje atuo em uma plataforma de atendimento que processa mais de 4 milhões de chats por mês.",
+      "Sou desenvolvedor full-stack com 5 anos de experiência na construção, evolução e sustentação de aplicações web escaláveis e sistemas de comunicação em tempo real.",
+      "Atuo de ponta a ponta, unindo front-end moderno (React, Next.js, TypeScript, Design Systems e gerenciamento de estado/cache) a back-end, mensageria e dados (Node.js, APIs REST, RabbitMQ, Redis, PostgreSQL, MySQL e MongoDB). Tenho histórico em plataformas de alto volume (4M+ interações mensais), testes automatizados, CI/CD e manutenção de sistemas legados críticos.",
     ],
     en: [
-      "I'm a full stack developer with 5 years of experience, specialized in the React, TypeScript and Node.js ecosystem. On the front end I build pixel-perfect, dynamic and highly interactive interfaces; on the back end I work with Node.js, Express, SQL and NoSQL databases and REST API integration.",
-      "I have a solid track record with performant, scalable applications: modular component architecture, performance optimization (Web Vitals) and CI/CD pipelines. Today I work on a customer-service platform that handles more than 4 million chats a month.",
+      "I'm a full-stack developer with 5 years of experience building, evolving and maintaining scalable web applications and real-time communication systems.",
+      "I work end to end, combining modern front-end (React, Next.js, TypeScript, Design Systems and state/cache management) with back-end, messaging and data (Node.js, REST APIs, RabbitMQ, Redis, PostgreSQL, MySQL and MongoDB). I have a track record with high-volume platforms (4M+ monthly interactions), automated testing, CI/CD and critical legacy system maintenance.",
     ],
   } satisfies Localized<string[]>,
   email: "wotsonbsf@hotmail.com",

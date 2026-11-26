@@ -6,40 +6,40 @@ export const skills: Skill[] = [
   { name: "TypeScript / JavaScript", level: 92 },
   { name: "Node.js / Express", level: 85 },
   { name: "Next.js", level: 85 },
-  { name: "Redux / React Query / Zustand", level: 90 },
-  { name: "CSS / Tailwind / Styled-Components", level: 92 },
-  { name: "PostgreSQL / MySQL", level: 72 },
-  { name: "MongoDB / Redis", level: 70 },
-  { name: "Docker / CI/CD (Jenkins)", level: 70 },
-  { name: "Jest / Testing Library / Vitest", level: 75 },
-  { name: "AWS (EC2, S3, API Gateway)", level: 55 },
+  { name: "Redux Toolkit / TanStack Query / Zustand", level: 90 },
+  { name: "Tailwind / Styled-Components / SASS", level: 92 },
+  { name: "PostgreSQL / MySQL / MongoDB", level: 75 },
+  { name: "RabbitMQ / Redis / WebSockets", level: 75 },
+  { name: "Vitest / Jest / Testing Library", level: 80 },
+  { name: "Docker / CI/CD (Bitbucket Pipelines)", level: 70 },
+  { name: "PHP / Java / Asterisk", level: 55 },
 ];
 
 export const highlights: Highlight[] = [
   {
     title: {
-      "pt-BR": "Análise e Desenvolvimento de Sistemas",
-      en: "Systems Analysis and Development",
+      "pt-BR": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+      en: "Technologist Degree in Systems Analysis and Development",
     },
     detail: {
       "pt-BR": "Instituto Federal da Paraíba (IFPB), Campus Cajazeiras",
       en: "Federal Institute of Paraíba (IFPB), Cajazeiras campus",
     },
-    year: "2025",
+    year: "2020–2025",
   },
   {
     title: { "pt-BR": "+4 milhões de chats/mês", en: "4M+ chats a month" },
     detail: {
-      "pt-BR": "Tela de atendimento que desenvolvo e otimizo na Smart NX",
-      en: "Customer-service screen I build and optimize at Smart NX",
+      "pt-BR": "Suite, a plataforma omnichannel em que trabalho na Smart NX",
+      en: "Suite, the omnichannel platform I work on at Smart NX",
     },
     year: "2022–",
   },
   {
-    title: { "pt-BR": "Inglês avançado", en: "Advanced English" },
+    title: { "pt-BR": "Inglês", en: "English" },
     detail: {
-      "pt-BR": "Leitura, escrita e conversação técnica",
-      en: "Technical reading, writing and conversation",
+      "pt-BR": "Leitura técnica avançada; escrita e conversação intermediárias",
+      en: "Advanced technical reading; intermediate writing and speaking",
     },
     year: "—",
   },
