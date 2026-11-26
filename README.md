@@ -6,7 +6,7 @@ Personal portfolio with a terminal/dev look: pinned horizontal project carousel 
 
 ## Getting started
 
-Requires Node 22 (see `.nvmrc`) and pnpm.
+Requires Node 26 LTS (see `.nvmrc`) and pnpm 10. Node 26 no longer bundles corepack, so install pnpm with `npm i -g pnpm@10`. On Ubuntu/WSL the official Node 26 binary also needs `libatomic1` (`sudo apt install libatomic1`).
 
 ```bash
 nvm use

@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Environment
 
-- Node 22 is required (`.nvmrc`); the default system Node (20.9) is too old for lint-staged and Vitest. In non-interactive shells, run `source ~/.nvm/nvm.sh && nvm use 22` first, including before `git commit`, because the Husky hooks run under whatever Node is on PATH.
+- Node 26 LTS is required (`.nvmrc`, `engines`); the default system Node (20.9) is too old for commitlint and Vitest. In non-interactive shells, run `source ~/.nvm/nvm.sh && nvm use 26` first, including before `git commit`, because the Husky hooks run under whatever Node is on PATH.
+- Node 26 has no corepack; pnpm is installed globally with npm (version pinned in `packageManager`).
 - Use pnpm.
 
 ## Commands
