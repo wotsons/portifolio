@@ -9,7 +9,6 @@ import type { ProjectStatus } from "@/content/types";
 import { cn, pad3 } from "@/lib/utils";
 import { WorkCarousel } from "./WorkCarousel";
 
-/** Tags shown on the card front; the full stack is on the back. */
 const MAX_TAGS = 4;
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
@@ -36,7 +35,6 @@ export async function Work() {
               flipBackLabel={t("flipBack")}
               front={
                 <>
-                  {/* Bleeds to the card edges (the face has p-6). */}
                   <div className="-mx-6 -mt-6">
                     <ProjectPreview kind={p.preview} image={p.image} alt={p.title} />
                   </div>

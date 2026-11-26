@@ -2,11 +2,7 @@
 
 import { useEffect } from "react";
 
-/**
- * Fades in every `.reveal` element once it scrolls into view. Server
- * components only need the class name, no client wrapper. Elements stay
- * visible without JS because the hidden state is gated on `html.js`.
- */
+/** The hidden `.reveal` state is gated on `html.js`, so content stays visible without JS. */
 export function RevealObserver() {
   useEffect(() => {
     const io = new IntersectionObserver(

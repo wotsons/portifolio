@@ -33,7 +33,6 @@ export interface Result {
   effects: Effect[];
 }
 
-/** Loosely typed translator scoped to the `terminal` namespace. */
 export type Translate = (key: string, values?: Record<string, string | number>) => string;
 
 export interface Context {
@@ -41,9 +40,7 @@ export interface Context {
   locale: Locale;
   /** Previously submitted commands, oldest first. */
   history?: string[];
-  /** Set once the Konami code has been entered. */
   snakeUnlocked?: boolean;
-  /** Current state of the background rain / cursor trail. */
   effectsOn?: boolean;
 }
 
@@ -83,7 +80,6 @@ export const COMMANDS = [
 
 export const FILES = ["projects/", "about.txt", "resume.pdf", "secrets.txt"] as const;
 
-/** Second-word completions per command. */
 export const ARG_COMPLETIONS: Record<string, readonly string[]> = {
   cat: FILES.filter((f) => !f.endsWith("/")),
   cd: ["projects/", ...SECTIONS],
@@ -98,7 +94,6 @@ const ok = (lines: Line[], effects: Effect[] = []): Result => ({ lines, effects 
 
 const LANG_ALIASES: Record<string, Locale> = { pt: "pt-BR", "pt-br": "pt-BR", en: "en" };
 
-/** Box-drawing banner sized to its longest line. */
 export function banner(lines: string[]): string[] {
   const width = Math.max(...lines.map((l) => l.length)) + 2;
   return [
@@ -336,13 +331,10 @@ export function runCommand(input: string, ctx: Context): Result {
 }
 
 export interface Completion {
-  /** New input value, when there is exactly one match. */
   value?: string;
-  /** All candidates, when there is more than one match. */
   options?: string[];
 }
 
-/** Tab-completion for the command (first word) or its argument (second word). */
 export function complete(input: string): Completion {
   const parts = input.trimStart().split(/\s+/);
   if (parts.length === 1) {

@@ -3,11 +3,7 @@ import type { ReactNode } from "react";
 import type { PreviewKind } from "@/content/types";
 import { cn } from "@/lib/utils";
 
-/*
- * Stylized UI illustrations for project cards. Most projects are private, so
- * instead of screenshots each card shows a small "app window" sketched with
- * divs/SVG in the site's color tokens (it follows the accent theme too).
- */
+// Drawn with theme tokens (not image files) so the illustrations follow the accent theme.
 
 const soft = "bg-[color-mix(in_srgb,var(--accent)_22%,transparent)]";
 const bar = "h-1.5 rounded-full bg-line-strong";

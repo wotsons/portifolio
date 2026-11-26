@@ -1,6 +1,5 @@
 import type { Project } from "./types";
 
-// Professional case studies (private code, facts from the resume) first, then public projects.
 export const projects: Project[] = [
   {
     slug: "atendimento",

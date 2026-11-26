@@ -1,6 +1,5 @@
 import type { Localized } from "./types";
 
-/** Single source of truth for personal data. */
 export const profile = {
   name: "Wotson Sula",
   role: {
@@ -38,5 +37,4 @@ export const profile = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 } as const;
 
-/** True once the GitHub username placeholder has been replaced. */
 export const hasGithub = !profile.github.startsWith("TODO");

@@ -8,7 +8,6 @@ export interface Token {
 const PATTERN =
   /("(?:[^"\\]|\\.)*")|\b(const|let|export|return)\b|\b(true|false|null)\b|\b(\d+(?:\.\d+)?)\b|([A-Za-z_$][\w$]*)(?=\s*:)|([{}[\](),;:=.])/g;
 
-/** Minimal JS/TS tokenizer — just enough to colorize the hero code window. */
 export function tokenize(source: string): Token[] {
   const tokens: Token[] = [];
   let last = 0;
@@ -33,7 +32,6 @@ export function tokenize(source: string): Token[] {
   return tokens;
 }
 
-/** Returns the tokens truncated so their combined length is `count`. */
 export function sliceTokens(tokens: Token[], count: number): Token[] {
   const out: Token[] = [];
   let remaining = count;
@@ -56,10 +54,6 @@ export interface CodeLine {
   tokens: Token[];
 }
 
-/**
- * Splits tokens into lines and moves each line's leading spaces into `indent`,
- * so lines can wrap with a hanging indent instead of scrolling horizontally.
- */
 export function splitLines(tokens: Token[]): CodeLine[] {
   const lines: CodeLine[] = [{ indent: 0, tokens: [] }];
   for (const token of tokens) {

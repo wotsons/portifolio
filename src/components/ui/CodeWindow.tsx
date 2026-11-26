@@ -41,13 +41,8 @@ export function CodeWindow({ title, code, start, className }: Props) {
         <span className="size-2.5 rounded-full bg-[#28c840]" aria-hidden />
         <span className="ml-2 font-mono text-xs text-muted">{title}</span>
       </figcaption>
-      {/* Full code is exposed to assistive tech; the animated copy is decorative. */}
       <pre className="sr-only">{code}</pre>
-      {/*
-       * Long lines wrap with a hanging indent instead of scrolling sideways.
-       * The full code sits invisibly in the same grid cell so the window's
-       * height is fixed from the start and doesn't jump while typing.
-       */}
+      {/* The invisible full copy in the same grid cell fixes the height while typing. */}
       <div
         aria-hidden
         className="grid p-5 font-mono text-[13px] leading-[22px] [overflow-wrap:anywhere] whitespace-pre-wrap"
@@ -68,7 +63,7 @@ function Lines({ lines, caret = false }: { lines: CodeLine[]; caret?: boolean })
     <div
       key={i}
       className={cn("min-h-[22px]", caret && i === lines.length - 1 && "caret")}
-      // First visual row starts at the code's indent; wrapped rows sit 2ch deeper.
+      // Hanging indent: wrapped rows sit 2ch deeper than the first.
       style={{ paddingLeft: `${line.indent + 2}ch`, textIndent: "-2ch" }}
     >
       {line.tokens.map((t, j) => (

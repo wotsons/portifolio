@@ -20,7 +20,6 @@ function flash(className: string, ms: number) {
   window.setTimeout(() => root.classList.remove(className), ms);
 }
 
-/** Konami unlock, game launcher, idle screensaver, away tab title, key clicks, toasts, hint, console and context menu. */
 export function EasterEggs() {
   const t = useTranslations("terminal");
   const [game, setGame] = useState<"snake" | "hunt" | null>(null);
@@ -66,7 +65,6 @@ export function EasterEggs() {
   );
 }
 
-/** Shows the keyboard tip once, 7s after the boot screen finishes. */
 function FirstVisitHint() {
   const t = useTranslations();
   const booted = useBootDone();
@@ -88,7 +86,6 @@ function FirstVisitHint() {
   return null;
 }
 
-/** A hello for the curious ones who open devtools. */
 function ConsoleGreeting() {
   const t = useTranslations("console");
   const said = useRef(false);
@@ -163,7 +160,6 @@ function AwayTitle() {
   return null;
 }
 
-/** Soft synthesized key click while typing in inputs (WebAudio, no assets). */
 function KeySound() {
   const reduced = useReducedMotion();
   useEffect(() => {
@@ -192,7 +188,6 @@ function KeySound() {
   return null;
 }
 
-/** Stacked toasts, bottom-left above the dev_mode button. */
 function Toasts() {
   const [toasts, setToasts] = useState<{ id: number; message: string }[]>([]);
   const nextId = useRef(0);

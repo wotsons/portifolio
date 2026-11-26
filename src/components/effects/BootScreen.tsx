@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 
 const KEY = "booted";
 
-/** First-visit-per-session boot sequence. Any key, click or touch skips it. */
 export function BootScreen() {
   const t = useTranslations("boot");
   const [state, setState] = useState<"off" | "on" | "leaving">("off");

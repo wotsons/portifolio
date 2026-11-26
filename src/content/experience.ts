@@ -1,6 +1,6 @@
 import type { Experience } from "./types";
 
-// Most recent first. Each bullet: an action plus a measurable result.
+// Most recent first.
 export const experience: Experience[] = [
   {
     company: "Smart NX",

@@ -11,7 +11,6 @@ const CHARS = "01<>[]{}/\\;=";
 const SIZE = 16;
 const FRAME_MS = 50;
 
-/** Subtle full-screen "digital rain". Columns near the pointer brighten and speed up. */
 export function MatrixRain() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const reduced = useReducedMotion();

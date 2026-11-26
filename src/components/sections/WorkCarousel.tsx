@@ -26,12 +26,7 @@ export function WorkCarousel({ heading, hint, children }: Props) {
         <div className="max-w-[960px]" style={{ paddingRight: "var(--pad-right)" }}>
           {heading}
         </div>
-        {/*
-         * While pinned, the viewport extends --fade px into the gutter left of
-         * the content column and fades out there (and at the right edge), so
-         * cards dissolve before reaching the fixed side nav instead of passing
-         * under it. At rest the first card sits just past the fade.
-         */}
+        {/* Extends --fade px into the gutter and masks it, so cards fade out before the side nav. */}
         <div
           data-print-static
           data-print-unclip

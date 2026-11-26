@@ -60,7 +60,6 @@ export function Terminal() {
   useAppEvent("terminal:open", (detail) => show(detail?.message, detail?.lines));
   useAppEvent("terminal:toggle", () => (open ? setOpen(false) : show()));
 
-  // Global shortcuts: ` toggles the terminal, 1–5 jump between sections.
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -112,7 +111,6 @@ export function Terminal() {
         applyAccentTheme("teal");
         return setEffects(!reduced);
       case "hire": {
-        // Animated progress line, then prefill and scroll to the contact form.
         let index = -1;
         setLines((prev) => {
           index = prev.length;

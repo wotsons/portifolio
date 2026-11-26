@@ -8,11 +8,6 @@ export interface TerminalLine {
   kind?: "input" | "out" | "muted" | "accent" | "error";
 }
 
-/**
- * Tiny typed event bus over window CustomEvents. Lets unrelated widgets
- * (footer button, keyboard shortcuts, context menu, terminal) talk without
- * a global store or prop drilling.
- */
 export interface AppEvents {
   "terminal:open": { message?: string; lines?: TerminalLine[] };
   "terminal:toggle": undefined;

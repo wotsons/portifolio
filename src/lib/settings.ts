@@ -2,7 +2,6 @@
 
 import { useSyncExternalStore } from "react";
 
-/** Minimal external store usable from any client component and from event handlers. */
 function createStore<T>(initial: () => T) {
   let value: T | undefined;
   const listeners = new Set<() => void>();
@@ -21,7 +20,6 @@ function createStore<T>(initial: () => T) {
 
 const EFFECTS_KEY = "effects";
 
-/** Matrix rain + cursor trail. Persisted; defaults to on. */
 export const effectsStore = createStore<boolean>(() => {
   try {
     return localStorage.getItem(EFFECTS_KEY) !== "off";
@@ -41,7 +39,7 @@ export function useEffectsEnabled() {
   return useSyncExternalStore(effectsStore.subscribe, effectsStore.get, () => true);
 }
 
-/** How many times the Konami code was entered this page view (1+ unlocks snake). */
+/** 1+ unlocks snake, 2+ triggers the light show. */
 export const konamiStore = createStore<number>(() => 0);
 
 export function useKonamiCount() {

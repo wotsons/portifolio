@@ -16,7 +16,6 @@ export function scrollPercent(scrollY: number, scrollHeight: number, viewport: n
   return max > 0 ? Math.min(100, Math.round((scrollY / max) * 100)) : 0;
 }
 
-/** Top-right status panel: time on page, scroll progress and availability. Desktop only. */
 export function StatusHud() {
   const t = useTranslations("hud");
   const [seconds, setSeconds] = useState(0);

@@ -25,7 +25,6 @@ const headers: HeadersInit = {
   ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
 };
 
-/** Last-year contribution calendar. Returns null on any failure so the UI can degrade. */
 export async function getContributions(user: string): Promise<Contributions | null> {
   "use cache";
   cacheLife("hours");

@@ -2,7 +2,6 @@ import type { Locale } from "@/i18n/routing";
 import { profile } from "@/content/profile";
 import { skills } from "@/content/skills";
 
-/** schema.org Person — helps search engines and recruiters' tools understand the page. */
 export function JsonLd({ locale }: { locale: Locale }) {
   const data = {
     "@context": "https://schema.org",
@@ -18,7 +17,7 @@ export function JsonLd({ locale }: { locale: Locale }) {
   return (
     <script
       type="application/ld+json"
-      // JSON.stringify output is safe here; `<` is escaped to avoid closing the tag.
+      // Escape `<` so the JSON can't close the script tag.
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );

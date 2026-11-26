@@ -5,10 +5,7 @@ import { useSyncExternalStore } from "react";
 
 const noop = () => () => {};
 
-/**
- * "3 days ago" on the client. The server renders a short absolute date, because
- * "now" can't be known while prerendering, and the client swaps it in after hydration.
- */
+/** "Now" can't be known while prerendering, so the server renders an absolute date. */
 export function RelativeTime({ iso }: { iso: string }) {
   const format = useFormatter();
   const date = new Date(iso);

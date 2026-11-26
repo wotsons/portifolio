@@ -3,14 +3,12 @@ import type { Locale } from "@/i18n/routing";
 /** A value that has one variant per supported locale. */
 export type Localized<T = string> = Record<Locale, T>;
 
-/** Pick the variant for `locale`. */
 export function l<T>(value: Localized<T>, locale: Locale): T {
   return value[locale];
 }
 
 export type ProjectStatus = "production" | "development" | "archived";
 
-/** Stylized UI illustration drawn in code for the card's preview area. */
 export type PreviewKind =
   "chat" | "components" | "performance" | "dashboard" | "player" | "terminal";
 
@@ -19,7 +17,7 @@ export interface Project {
   title: string;
   status: ProjectStatus;
   preview: PreviewKind;
-  /** Optional real screenshot (path under /public); replaces the illustration. */
+  /** Path under /public; replaces the illustration. */
   image?: string;
   summary: Localized;
   stack: string[];

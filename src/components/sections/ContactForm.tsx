@@ -77,7 +77,7 @@ export function ContactForm({ email }: { email: string }) {
       </div>
       {field("message", "textarea")}
 
-      {/* Honeypot — hidden from humans and assistive tech. */}
+      {/* Honeypot */}
       <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
           Company

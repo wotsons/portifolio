@@ -1,7 +1,6 @@
 import type { Highlight, Skill } from "./types";
 
 // The first four names also appear in the hero code window's `stack` array.
-// Levels are a self-assessment derived from the resume ("domínio avançado" > "conhecimento sólido" > "familiaridade").
 export const skills: Skill[] = [
   { name: "React / React Native", level: 95 },
   { name: "TypeScript / JavaScript", level: 92 },

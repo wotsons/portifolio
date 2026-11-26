@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/** Tracks which section is crossing the vertical middle of the viewport. */
 export function useActiveSection<T extends string>(ids: readonly T[]): T {
   const [active, setActive] = useState<T>(ids[0]);
 

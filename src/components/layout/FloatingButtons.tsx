@@ -11,7 +11,6 @@ const floatBtn =
 
 const NOTES = ["note1", "note2", "note3", "note4", "note5", "note6"] as const;
 
-/** Bottom-left dev_mode toggle (with developer notes) and bottom-right terminal toggle. */
 export function FloatingButtons() {
   const t = useTranslations("float");
   const [devOpen, setDevOpen] = useState(false);

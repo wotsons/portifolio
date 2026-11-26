@@ -7,7 +7,6 @@ import { effectsStore } from "@/lib/settings";
 const TRAIL_CHARS = "01<>{}/;";
 const INTERACTIVE = "a, button, input, textarea, select, label, [role='button']";
 
-/** Dot + easing ring cursor with an ASCII trail. Fine pointers only. */
 export function CustomCursor() {
   const reduced = useReducedMotion();
   const [enabled, setEnabled] = useState(false);

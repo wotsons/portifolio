@@ -16,7 +16,6 @@ export type ContactState =
       status: "error";
       /** Fields that failed validation (messages are localized on the client). */
       fields?: ContactField[];
-      /** Non-field failure reason. */
       reason?: "notConfigured" | "server";
       values: Partial<ContactInput>;
     };
