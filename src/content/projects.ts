@@ -2,64 +2,65 @@ import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
-    slug: "atendimento",
+    slug: "suite",
     preview: "chat",
-    title: "Plataforma de Atendimento",
+    title: "Suite",
     status: "production",
     summary: {
       "pt-BR":
-        "Tela de atendimento ao usuário da Smart NX, otimizada para mais de 4 milhões de chats por mês. Código privado.",
-      en: "Smart NX's customer-service screen, optimized for more than 4 million chats a month. Private code.",
+        "Plataforma omnichannel da Smart NX com mais de 4 milhões de chats por mês. Código privado.",
+      en: "Smart NX's omnichannel platform, handling more than 4 million chats a month. Private code.",
     },
-    stack: ["React", "TypeScript", "Redux Toolkit", "Ant Design", "REST"],
+    stack: ["React", "TypeScript", "Node.js", "Redux Toolkit", "TanStack Query"],
     challenge: {
       "pt-BR":
-        "Manter a interface fluida e responsiva com um volume de mais de 4.000.000 de chats mensais.",
-      en: "Keeping the interface smooth and responsive at more than 4,000,000 chats a month.",
+        "Desenvolver e escalar funcionalidades ponta a ponta em uma plataforma de alto volume.",
+      en: "Building and scaling end-to-end features on a high-volume platform.",
     },
     impact: {
-      "pt-BR": "Atendimento em escala com experiência fluida para quem opera a plataforma.",
-      en: "Customer service at scale with a smooth experience for the people running it.",
+      "pt-BR":
+        "Mais de 4 milhões de chats mensais, com estado e cache padronizados e suíte de testes criada do zero.",
+      en: "More than 4 million chats a month, with standardized state and caching and a test suite built from scratch.",
     },
   },
   {
-    slug: "design-system",
-    preview: "components",
-    title: "Biblioteca de Componentes",
+    slug: "webchatplus",
+    preview: "widget",
+    title: "WebChatPlus",
     status: "production",
     summary: {
       "pt-BR":
-        "Biblioteca de componentes modulares que arquitetei na Smart NX com Ant Design e Styled-Components. Código privado.",
-      en: "Modular component library I architected at Smart NX with Ant Design and Styled-Components. Private code.",
+        "Widget de atendimento embarcado nos sites dos clientes da Smart NX. Código privado.",
+      en: "Support widget embedded in Smart NX clients' websites. Private code.",
     },
-    stack: ["React", "TypeScript", "Ant Design", "Styled-Components"],
+    stack: ["React", "Tailwind", "Webpack"],
     challenge: {
-      "pt-BR": "Criar componentes genéricos o bastante para atender 4 squads diferentes.",
-      en: "Making components generic enough to serve 4 different squads.",
+      "pt-BR": "Empacotar uma aplicação React para rodar embarcada em sites de terceiros.",
+      en: "Packaging a React app to run embedded in third-party websites.",
     },
     impact: {
-      "pt-BR": "Adotada por 4 squads e ~20% menos tempo para entregar novas features.",
-      en: "Adopted by 4 squads, with ~20% faster delivery of new features.",
+      "pt-BR": "Canal de atendimento direto nos sites dos clientes, integrado ao Suite.",
+      en: "A support channel right on clients' websites, connected to Suite.",
     },
   },
   {
-    slug: "performance",
-    preview: "performance",
-    title: "Performance & Web Vitals",
+    slug: "integrations",
+    preview: "integrations",
+    title: "Hub de Integrações",
     status: "production",
     summary: {
       "pt-BR":
-        "Otimização de aplicações React/TypeScript na Smart NX com code-splitting, lazy loading e ajuste de bundles.",
-      en: "Optimizing React/TypeScript applications at Smart NX with code-splitting, lazy loading and bundle tuning.",
+        "Webhooks e filas assíncronas conectando WhatsApp, Zenvia, Telegram, SMS, e-mail e Asterisk. Código privado.",
+      en: "Webhooks and async queues connecting WhatsApp, Zenvia, Telegram, SMS, email and Asterisk. Private code.",
     },
-    stack: ["React", "TypeScript", "Webpack", "Web Vitals"],
+    stack: ["Node.js", "RabbitMQ", "Redis", "Webhooks", "WhatsApp Business API"],
     challenge: {
-      "pt-BR": "Reduzir o peso dos bundles sem reescrever as aplicações.",
-      en: "Shrinking bundles without rewriting the applications.",
+      "pt-BR": "Processar mensagens de vários canais de forma assíncrona com filas.",
+      en: "Processing messages from many channels asynchronously through queues.",
     },
     impact: {
-      "pt-BR": "-17% no tempo de carregamento e +10% na taxa de conversão.",
-      en: "-17% load time and +10% conversion rate.",
+      "pt-BR": "6 canais integrados à plataforma via RabbitMQ e Redis.",
+      en: "6 channels integrated into the platform via RabbitMQ and Redis.",
     },
   },
   {

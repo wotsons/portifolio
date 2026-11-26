@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import GaugeIcon from "@/assets/icons/gauge.svg?react";
 import type { PreviewKind } from "@/content/types";
 import { cn } from "@/lib/utils";
 
@@ -58,66 +57,57 @@ function Chat() {
   );
 }
 
-function Components() {
+function Widget() {
   return (
-    <Window className="grid grid-cols-3 gap-2">
-      <div className="grid place-items-center rounded-md border border-line">
-        <span className="h-4 w-12 rounded-md bg-accent" />
+    <Window>
+      <div className="flex flex-col gap-1.5">
+        <span className="h-2 w-1/3 rounded-full bg-fg-2/50" />
+        <span className={cn(bar, "w-3/4")} />
+        <span className={cn(bar, "w-2/3")} />
+        <span className={cn(bar, "w-1/2")} />
       </div>
-      <div className="grid place-items-center rounded-md border border-line">
-        <span className="relative h-3.5 w-7 rounded-full bg-accent">
-          <span className="absolute top-0.5 right-0.5 size-2.5 rounded-full bg-bg" />
+      <div className="absolute right-2.5 bottom-9 flex w-[44%] flex-col gap-1 rounded-md border border-line-strong bg-raised p-1.5 shadow-float">
+        <span className="mb-0.5 flex items-center gap-1">
+          <span className="size-1.5 rounded-full bg-accent" />
+          <span className={cn(bar, "w-1/2")} />
         </span>
+        <span className="h-2.5 w-4/5 rounded-sm rounded-bl-none bg-card" />
+        <span className={cn("h-2.5 w-3/5 self-end rounded-sm rounded-br-none", soft)} />
       </div>
-      <div className="grid place-items-center rounded-md border border-line">
-        <span className="flex h-4 w-14 items-center rounded border border-accent px-1">
-          <span className="h-2.5 w-px bg-accent" />
-        </span>
-      </div>
-      <div className="grid place-items-center rounded-md border border-line">
-        <span className="flex gap-1">
-          <span className="grid size-3 place-items-center rounded-sm bg-accent text-[8px] leading-none text-accent-ink">
-            ✓
-          </span>
-          <span className="size-3 rounded-sm border border-line-strong" />
-        </span>
-      </div>
-      <div className="grid place-items-center rounded-md border border-line">
-        <span className="flex gap-1">
-          <span className={cn("h-3 w-6 rounded-full", soft)} />
-          <span className="h-3 w-4 rounded-full bg-raised" />
-        </span>
-      </div>
-      <div className="grid place-items-center rounded-md border border-line">
-        <span className="relative h-1 w-14 rounded-full bg-line-strong">
-          <span className="absolute inset-y-0 left-0 w-3/5 rounded-full bg-accent" />
-          <span className="absolute top-1/2 left-3/5 size-2.5 -translate-1/2 rounded-full border-2 border-accent bg-card" />
-        </span>
-      </div>
+      <span className="absolute right-2.5 bottom-2 grid size-6 place-items-center rounded-full bg-accent">
+        <span className="size-2.5 rounded-[3px] rounded-br-none bg-accent-ink" />
+      </span>
     </Window>
   );
 }
 
-function Performance() {
-  const bars = [92, 80, 74, 61, 55, 48];
+function Integrations() {
+  const channels = ["w-8", "w-6", "w-9", "w-7"];
   return (
-    <Window className="flex items-center gap-4 px-4">
-      <GaugeIcon aria-hidden className="size-[70px] shrink-0 text-accent" />
-      <div className="flex h-full flex-1 flex-col">
-        <span className="font-mono text-[15px] leading-5 text-accent">-17%</span>
-        <span className={cn(bar, "mt-1 w-2/3")} />
-        <div className="mt-auto flex h-[52%] items-end gap-1.5">
-          {bars.map((h, i) => (
+    <Window className="flex items-center gap-2">
+      <div className="flex flex-col gap-1.5">
+        {channels.map((w, i) => (
+          <span
+            key={i}
+            className="flex items-center gap-1 rounded-md border border-line px-1.5 py-1"
+          >
             <span
-              key={h}
-              className={cn(
-                "flex-1 rounded-t-sm",
-                i === bars.length - 1 ? "bg-accent" : "bg-raised",
-              )}
-              style={{ height: `${h}%` }}
+              className={cn("size-1.5 rounded-full", i === 0 ? "bg-accent" : "bg-line-strong")}
             />
-          ))}
-        </div>
+            <span className={cn(bar, w)} />
+          </span>
+        ))}
+      </div>
+      <span className="h-px flex-1 bg-line-strong" />
+      <div className="flex flex-col items-center gap-1 rounded-md border border-accent/60 p-1.5">
+        {[0, 1, 2].map((i) => (
+          <span key={i} className={cn("h-2 w-9 rounded-sm", i === 0 ? "bg-accent" : soft)} />
+        ))}
+        <span className="font-mono text-[8px] leading-none text-muted">queue</span>
+      </div>
+      <span className="h-px flex-1 bg-line-strong" />
+      <div className="grid size-12 shrink-0 place-items-center rounded-md bg-raised">
+        <span className="size-5 rounded-md bg-accent" />
       </div>
     </Window>
   );
@@ -210,8 +200,8 @@ function Terminal() {
 
 const ILLUSTRATIONS: Record<PreviewKind, () => ReactNode> = {
   chat: Chat,
-  components: Components,
-  performance: Performance,
+  widget: Widget,
+  integrations: Integrations,
   dashboard: Dashboard,
   player: Player,
   terminal: Terminal,

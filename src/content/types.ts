@@ -9,8 +9,7 @@ export function l<T>(value: Localized<T>, locale: Locale): T {
 
 export type ProjectStatus = "production" | "development" | "archived";
 
-export type PreviewKind =
-  "chat" | "components" | "performance" | "dashboard" | "player" | "terminal";
+export type PreviewKind = "chat" | "widget" | "integrations" | "dashboard" | "player" | "terminal";
 
 export interface Project {
   slug: string;
