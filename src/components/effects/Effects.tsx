@@ -1,7 +1,9 @@
 "use client";
 
 import { Terminal } from "@/components/terminal/Terminal";
+import { BootScreen } from "./BootScreen";
 import { CustomCursor } from "./CustomCursor";
+import { EasterEggs } from "./EasterEggs";
 import { MatrixRain } from "./MatrixRain";
 import { RevealObserver } from "./RevealObserver";
 
@@ -12,6 +14,8 @@ export function Effects() {
       <MatrixRain />
       <RevealObserver />
       <Terminal />
+      <EasterEggs />
+      <BootScreen />
       <CustomCursor />
     </>
   );

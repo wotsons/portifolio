@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { cacheLife } from "next/cache";
 import { profile } from "@/content/profile";
-import { AdminButton } from "./AdminButton";
+import { AdminButton, HuntButton } from "./AdminButton";
 
 async function currentYear() {
   "use cache";
@@ -32,6 +32,7 @@ export async function Footer() {
         {t("viewSource")}
       </a>
       <AdminButton label={t("admin")} />
+      <HuntButton />
       <span className="max-[700px]:hidden">{t("hint")}</span>
     </footer>
   );
